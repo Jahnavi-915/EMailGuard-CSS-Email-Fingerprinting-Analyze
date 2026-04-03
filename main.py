@@ -1,6 +1,9 @@
 import argparse
 from eml_parser import parse_eml
 from css_extractor import extract_all_css
+from detectors.import_detector import detect_import_rules
+from detectors.media_detector import detect_media_queries
+from detectors.container_detector import detect_container_queries
 
 def main():
     parser = argparse.ArgumentParser(description="EMailGuard - CSS Email Fingerprinting Analyzer")
@@ -19,27 +22,35 @@ def main():
     # Step 2: Extract CSS
     css_snippets = extract_all_css(html)
 
+    # Step 3: Run detectors (Week 2)
+    findings = []
+    findings.extend(detect_import_rules(css_snippets))
+    findings.extend(detect_media_queries(css_snippets))
+    findings.extend(detect_container_queries(css_snippets))
+
+    # Step 4: Output results
     if args.verbose:
-        print("\n" + "="*50)
+        print("\n" + "="*60)
         print("EMAIL METADATA")
-        print("="*50)
+        print("="*60)
         for k, v in metadata.items():
             print(f"{k}: {v}")
-        print("\n" + "="*50)
-        print(f"EXTRACTED CSS SNIPPETS ({len(css_snippets)})")
-        print("="*50)
-        for i, css in enumerate(css_snippets, 1):
-            print(f"\n--- Snippet {i} ---")
-            # Truncate long CSS for readability
-            print(css[:500] + ("..." if len(css) > 500 else ""))
-
-    # Step 3: Detectors (Week 2) – placeholder
-    findings = []
+        print("\n" + "="*60)
+        print(f"FINDINGS ({len(findings)})")
+        print("="*60)
+        for i, f in enumerate(findings, 1):
+            print(f"\n--- Finding {i} ---")
+            print(f"Technique: {f.technique}")
+            print(f"Risk: {f.risk_level}")
+            print(f"Paper: {f.paper_section}")
+            print(f"Snippet: {f.snippet[:200]}...")
+            print(f"Mitigation: {f.mitigation}")
 
     if args.summary:
-        print("\nRisk score: N/A (detectors not implemented yet)")
+        # Placeholder – full risk scoring will be added in Week 3
+        print(f"\nNumber of findings: {len(findings)}")
     else:
-        print(f"\nAnalysis complete. Found {len(css_snippets)} CSS snippet(s).")
+        print(f"\nAnalysis complete. Found {len(findings)} CSS fingerprinting technique(s).")
         if not args.verbose:
             print("Use --verbose to see details.")
 
