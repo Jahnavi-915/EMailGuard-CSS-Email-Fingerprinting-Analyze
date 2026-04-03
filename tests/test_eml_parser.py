@@ -1,8 +1,7 @@
 import pytest
-from eml_parser import parse_eml
+from eml_parser import parse_eml   # <-- ADD THIS
 
 def test_parse_real_eml(tmp_path):
-    # Create a minimal .eml file for testing
     eml_content = b"""From: test@example.com
 Subject: Test
 MIME-Version: 1.0
