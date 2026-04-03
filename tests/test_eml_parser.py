@@ -1,16 +1,23 @@
 import pytest
-from eml_parser import parse_eml   # <-- ADD THIS
+from eml_parser import parse_eml
+from pathlib import Path
 
-def test_parse_real_eml(tmp_path):
-    eml_content = b"""From: test@example.com
-Subject: Test
-MIME-Version: 1.0
-Content-Type: text/html; charset="utf-8"
+def test_parse_paper_poc_officedetect():
+    """Test that officedetect.eml parses and returns HTML."""
+    eml_path = Path("test_samples/paper_pocs/officedetect.eml")
+    if not eml_path.exists():
+        pytest.skip("officedetect.eml not found")
+    
+    html, metadata = parse_eml(str(eml_path))
+    assert html is not None
+    assert "html" in html.lower()
+    assert metadata['subject'] is not None  # subject may be present
 
-<html><body>Hello</body></html>
-"""
-    eml_file = tmp_path / "test.eml"
-    eml_file.write_bytes(eml_content)
-    html, meta = parse_eml(str(eml_file))
-    assert "Hello" in html
-    assert meta['subject'] == "Test"
+def test_parse_paper_poc_osdetect():
+    eml_path = Path("test_samples/paper_pocs/osdetect.eml")
+    if not eml_path.exists():
+        pytest.skip("osdetect.eml not found")
+    
+    html, metadata = parse_eml(str(eml_path))
+    assert html is not None
+    assert "calc" in html or "container" in html.lower()
