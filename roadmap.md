@@ -1,120 +1,188 @@
-Here is the final, execution‑ready roadmap. It incorporates all the improvements discussed, balances the workload, and gives you clear milestones to hit each week.
+# 🚀 Final Execution‑Ready Roadmap
+
+## EMailGuard – CSS Email Fingerprinting Analyzer
+
+**Team Size:** 2 | **Duration:** 4 Weeks | **Based on:** *Cascading Spy Sheets* (NDSS 2025)  
+**Artifact:** https://github.com/cispa/cascading-spy-sheets (only email PoCs)
 
 ---
 
-## Final Roadmap: EMailGuard – CSS Email Fingerprinting Analyzer
+## 📌 Core Commitments (Non‑Negotiable)
 
-**Team:** 2 Members  
-**Duration:** 4 Weeks  
-**Goal:** Deliver a fully functional tool with CLI, web interface, six detectors, correlation, risk scoring, and an HTML report, ready for demo and submission.
-
----
-
-### Guiding Principles
-- **MVP by end of Week 2** – you always have something to show.  
-- **Design before code** – correlation rules are sketched in Week 1.  
-- **Prioritise depth** – 4 solid detectors + correlation > 6 mediocre ones.  
-- **Daily 10‑min sync** – unblock quickly and stay aligned.
+| Area | Commitment |
+|------|-------------|
+| **Scope** | 6 detectors, correlation engine, risk scoring, CLI + Flask web UI |
+| **Dataset** | 15–20 emails: 4–5 paper PoCs + 5–8 synthetic attacks + 5–10 clean |
+| **MVP** | By end of Week 2: CLI can parse, detect, and output findings (even if report is plain text) |
+| **Quality** | Unit tests for each detector; integration test on full dataset; false positive measurement |
 
 ---
 
-## Week 1 – Foundation + Correlation Design (Days 1–7)
+## 👥 Role Distribution (Final)
 
-**Goal:** Solid parser, CSS extraction, and a clear plan for correlation rules.
-
-| Task | Member A | Member B |
-|------|----------|----------|
-| **Setup** | Git repo, Python venv, project structure (e.g., `parser/`, `detectors/`, `correlator/`, `scorer/`, `reporter/`, `cli/`, `web/`, `tests/`). Install dependencies: beautifulsoup4, flask, jinja2, pytest. | Same (collaborate). |
-| **Parser** | Implement `.eml` reading, MIME decoding, base64/quoted‑printable handling. Extract headers (Subject, From, Date). | Build a test email corpus: at least 10 `.eml` files covering all six attack types plus clean newsletters. |
-| **HTML & CSS Extraction** | Use BeautifulSoup to extract `<style>` tags, inline `style` attributes, `<link rel="stylesheet">` URLs, and `@import` URLs (record but do not fetch). | Validate extraction against the test corpus. |
-| **Finding Object** | Define `Finding` class with fields: `technique`, `snippet`, `risk_level`, `paper_section`, `description`, `mitigation`. | Same; align on structure. |
-| **Correlation Design** | Draft a simple rule engine: store rules as a list of (condition, boost). Example: if `@import` + `@media` with `url()` → boost 15. | Map attack chains from paper (Section IX‑B) to concrete rules. |
-| **Unit Tests** | Write tests for parser functions (file reading, MIME, header extraction). | Write tests for CSS extraction (style tags, inline styles, `@import` detection). |
-
-**Deliverables:**  
-- Working parser module.  
-- `Finding` class defined.  
-- Correlation rule skeleton (rules stored in a config or code).  
-- Test email corpus.  
-- Initial unit tests.
+| Module | Member A | Member B |
+|--------|----------|----------|
+| `.eml` parser + CSS extractor | ✅ | – |
+| Detectors | `@import`, `@media`, `@container` | `calc()`, `@font-face`, `@supports` |
+| Correlation engine | ✅ | – |
+| Risk scoring | – | ✅ |
+| CLI | ✅ | – |
+| Flask web app | – | ✅ |
+| HTML report (Jinja2) | – | ✅ |
+| Unit tests (own detectors) | ✅ | ✅ |
+| Integration tests | Shared | Shared |
+| Dataset creation | Shared | Shared |
+| Documentation & PPT | Shared (A: technical slides; B: design lead) | Shared |
+| Deployment (Render) | ✅ | – |
 
 ---
 
-## Week 2 – MVP: First Detectors + Basic Report (Days 8–14)
+## 📅 Week‑by‑Week Execution Plan
 
-**Goal:** Minimum viable analyzer – at least 4 detectors, basic CLI, simple HTML report.
+### Week 1 – Foundation & Parsing (Days 1–7)
 
-| Task | Member A | Member B |
-|------|----------|----------|
-| **Detectors – Priority Group** | – `@import` chain (Critical)<br>– `@media` conditional (Critical/Medium)<br>– `@font‑face` remote (High) | – `calc()` expression (High)<br>– (optional) `@supports` probe (Medium)<br>– (optional) `@container` query (Critical/High) |
-| **Risk Scoring (MVP)** | – | Implement base scoring: Critical 30, High 15, Medium 8, Low 3. Total score = sum of base scores (correlation not yet included). |
-| **CLI (MVP)** | Build `cli.py` with `--input` flag, prints findings to console, basic exit codes. | – |
-| **Report (MVP)** | – | Jinja2 template showing risk score, list of findings (technique, risk, snippet, description, mitigation). Self‑contained CSS. |
-| **Integration** | Wire parser, detectors, scoring, and CLI into a simple script. | – |
-| **Testing** | Unit tests for each implemented detector. | Test scoring and report template. |
+**Goal:** Project skeleton, parser, CSS extractor, and test harness.
 
-**Deliverables:**  
-- At least 4 working detectors with unit tests.  
-- CLI that can analyze an `.eml` and print findings.  
-- Basic HTML report (no correlations yet).  
-- **MVP ready to demo.**
+| Day | Member A | Member B |
+|-----|----------|----------|
+| 1–2 | Create repo, venv, `requirements.txt`. Implement `eml_parser.py` (extract HTML + metadata). | Same setup. Create Flask skeleton (upload route, basic HTML). Download artifact email PoCs. |
+| 3–4 | Implement `css_extractor.py` (`<style>`, inline, `<link>`, `@import`). Unit tests. | Create `test_samples/` with 4 paper PoCs. Write script to test parser on them. |
+| 5–7 | Integrate parser+extractor into `main.py` (CLI stub: `--input`). Test on all PoCs. | Build Jinja2 HTML template with placeholders (metadata, findings table). |
 
----
-
-## Week 3 – Correlation, Full Scoring, Web Interface (Days 15–21)
-
-**Goal:** Complete the intelligence layer and make the tool usable via web.
-
-| Task | Member A | Member B |
-|------|----------|----------|
-| **Correlation Engine** | Implement the rule engine from Week 1. Scan findings, detect chains, produce correlation insights with boosts (5–20). | Help refine rules by testing on the corpus. |
-| **Final Risk Scoring** | Integrate correlation boosts into total score, clamp to 0–100, map to label (Safe/Moderate/High/Critical). | Validate scoring logic with edge cases. |
-| **Flask Web App** | – | Build upload form, process email, display report in browser. Add download button. Handle errors gracefully. |
-| **Report (final)** | – | Add correlation insights section, expandable CSS snippets, paper references, mitigation summary (from Section IX‑B). |
-| **Integration Testing** | Test full pipeline (parser → detectors → correlation → scoring) on all test emails. | Test web upload and report generation. |
-
-**Deliverables:**  
-- Complete correlation engine.  
-- Full risk scoring with boosts.  
-- Fully functional Flask web app.  
-- Final HTML report format.
+**End Week 1 Deliverables:**  
+✔ Parser works on all paper PoCs.  
+✔ CLI can print extracted CSS.  
+✔ Flask can upload and show dummy report.  
+✔ `test_samples/` has 4 `.eml` files.
 
 ---
 
-## Week 4 – Polish, Testing, Documentation, Wow Factor (Days 22–28)
+### Week 2 – Detectors (Core Fingerprinting Logic)
 
-**Goal:** Deliver a production‑ready tool with standout features.
+**Goal:** All 6 detectors implemented, unit tested, and integrated into CLI.
 
-| Task | Member A | Member B |
-|------|----------|----------|
-| **Testing & Buffer** | Achieve 80% unit test coverage. Run edge‑case tests (malformed HTML, obfuscated patterns). Perform false‑positive test on 10 clean newsletters. | Test on Windows, Linux, macOS. Manual UI/UX testing. |
-| **Performance** | Profile processing time; ensure <2 seconds per file on reference hardware. | Optimise report rendering if needed. |
-| **Documentation** | In‑line code comments. Contribute to README (installation, usage, architecture). | User guide for web interface. Write project report (8–10 pages). Prepare presentation slides. |
-| **Wow Factor (choose one)** | **Option A (explainability):** Add a plain‑English “Why this email is risky” summary in the report. | **Option B (visualisation):** Add a simple graph of attack chains (e.g., using D3.js). |
-| **Deployment** | Prepare deployment instructions (Render, Railway, or local). | Deploy Flask app to a public URL; verify live demo. |
-| **Final Deliverables** | Push final source code to GitHub. Submit SRS (already done). Contribute to project report. | Submit project report PDF, presentation slides, and live demo URL. |
+| Day | Member A | Member B |
+|-----|----------|----------|
+| 8–9 | Detector: `@import` chain (Critical). Unit test on paper PoCs. | Detector: `calc()` expression (High). Unit test. |
+| 10–11 | Detector: `@media` conditional (Critical). Unit test. | Detector: `@font-face` remote (High). Unit test. |
+| 12–13 | Detector: `@container` query (Critical/High). Unit test. | Detector: `@supports` probe (High). Unit test. |
+| 14 | Integrate all 6 detectors into `main.py`. Run on paper PoCs – verify detection. | Create **5–8 synthetic attack emails** (nested `@media`, obfuscated `calc()`, multiple `@import`, etc.). |
 
----
-
-## Workload & Priority Notes
-
-- **Detectors:** If time is tight in Week 2, focus on these four:  
-  `@import`, `@media`, `@font‑face`, `calc()` – they cover the highest‑risk techniques and the most distinctive patterns.
-- **Correlation:** Start with a few obvious chains (e.g., `@import` + `@media` with `url()`, `@supports` + `@media` + `calc()`). You can always add more later.
-- **Flask:** Start the skeleton at the end of Week 2 to catch encoding/file‑upload bugs early.
-- **Daily sync:** 10 minutes, just to unblock and align.
+**End Week 2 Deliverables:**  
+✔ 6 detectors with passing unit tests.  
+✔ `main.py --input file.eml --verbose` prints findings.  
+✔ Synthetic dataset (5–8 `.eml` files) ready.
 
 ---
 
-## Summary of Deliverables by Week
+### Week 3 – Correlation, Scoring, Reporting, Web Integration
 
-| Week | Deliverables |
-|------|--------------|
-| 1 | Parser, CSS extraction, Finding object, correlation rule design, test corpus, unit tests |
-| 2 | 4+ detectors, basic CLI, simple HTML report, MVP demo |
-| 3 | Full correlation, final scoring, Flask web app, final report format |
-| 4 | High test coverage, documentation, live demo, project report, presentation, wow feature |
+**Goal:** Add intelligence, full reporting, and web UI.
+
+| Day | Member A | Member B |
+|-----|----------|----------|
+| 15–16 | Implement correlation engine: rule‑based (sequences like `@supports`→`@media`→`calc()`; chains like `@import`+`@media`). | Implement risk scoring: base scores (Critical=30, High=15, Medium=8, Low=3) + correlation boosts → total score → label (Safe/Moderate/High/Critical). |
+| 17–18 | Integrate correlator into `main.py`. Test on synthetic multi‑stage emails. | Integrate scoring into `main.py`. Verify labels. |
+| 19–20 | Implement HTML report generator (`reporter/html_reporter.py`) – uses Jinja2, includes metadata, findings table, correlation insights, mitigations. | Enhance Flask app: after upload, run full pipeline, display report, add download button. |
+| 21 | Collect **5–10 clean emails** (from your inbox). Run full pipeline on all 15–20 emails. Record detection rate & false positives. | Write integration tests (`test_integration.py`) – end‑to‑end on entire dataset. |
+
+**End Week 3 Deliverables:**  
+✔ Correlation & scoring working.  
+✔ CLI produces HTML report (via `--output`).  
+✔ Flask app shows full report.  
+✔ Evaluation metrics (detection %, false positive %) calculated.
 
 ---
 
-**Final note:** This roadmap is designed to be **execution‑ready**. Stick to the milestones, prioritise depth, and you’ll have a project that impresses both evaluators and future interviewers. Good luck! 🚀
+### Week 4 – Polish, Documentation, Deployment, Presentation
+
+**Goal:** Final deliverables, live demo, report, PPT.
+
+| Day | Member A | Member B |
+|-----|----------|----------|
+| 22–23 | Deploy Flask app on Render (free tier). Set `gunicorn app:app`. Test live URL. | Finalise PPT: title, problem, architecture, detectors, correlation, results, demo, challenges, future work. |
+| 24–25 | Write `README.md` (installation, usage, architecture, link to paper, live demo URL, screenshots). | Write project report (8–10 pages): abstract, intro (paper summary), requirements, design, implementation, evaluation (metrics, false positives), conclusion, references. |
+| 26–27 | Final code cleanup, docstrings, run all tests. | Review report, add architecture diagram (from SRS). Prepare viva answers. |
+| 28 | Push final code to GitHub. Submit report PDF, PPT, live demo link. | Practice presentation (10–12 min). |
+
+**End Week 4 Deliverables:**  
+✔ Fully working CLI + web tool.  
+✔ Live demo URL (optional but recommended).  
+✔ Complete README + project report.  
+✔ PPT slides.  
+✔ GitHub repo public/shared.
+
+---
+
+## 🧪 How to Use the Artifact (Step‑by‑Step)
+
+1. **Clone the artifact** (outside your project folder):
+   ```bash
+   git clone https://github.com/cispa/cascading-spy-sheets.git
+   ```
+2. **Copy only the email PoCs** into your `test_samples/paper_pocs/`:
+   - `pocs/email/osdetect/osdetect.eml`
+   - `pocs/email/officedetect/officedetect.eml`
+   - `pocs/email/styledetect/styledetect.eml`
+   - `pocs/email/printdetect/printdetect.eml`
+   - (Optional) any `.eml` from `pocs/examples/` that uses email‑like HTML.
+3. **Ignore** `pocs/browser/`, `pocs/extensions/`, `evaluation/browser/`, `mitigation/browser/`.
+4. **Do NOT copy code** – only use the `.eml` files as test inputs.
+
+---
+
+## 📊 Dataset Construction (15–20 Emails)
+
+| Category | Count | Source |
+|----------|-------|--------|
+| Paper PoCs | 4–5 | Artifact (copied as above) |
+| Synthetic attacks | 5–8 | Create by modifying PoCs: nested `@media`, obfuscated `calc()`, multiple `@import`, inline‑only CSS, malformed CSS |
+| Clean emails | 5–10 | Export newsletters from your own email (as `.eml`) or create simple HTML emails with no CSS |
+
+**Organisation:**  
+```
+test_samples/
+├── paper_pocs/      (4–5 files)
+├── synthetic/       (5–8 files)
+└── clean/           (5–10 files)
+```
+
+---
+
+## 🧠 Micro‑Optimisations (Do Not Skip)
+
+1. **Start Flask early** – add a basic upload page by end of Week 2 to catch encoding bugs early.
+2. **Lock detector output format in Week 1** – define the `Finding` dataclass (technique, snippet, risk, paper_section, description, mitigation).
+3. **Keep correlation simple** – use explicit rules like `if detector_X and detector_Y: boost += 10`. No nested logic.
+4. **Track metrics from Week 3** – as soon as dataset is ready, run the full pipeline and log detection rate and false positives.
+
+---
+
+## 📈 Evaluation Metrics (Report These)
+
+- **Detection rate** = (attacks correctly flagged) / (total attack emails) × 100%
+- **False positive rate** = (clean emails flagged risky) / (total clean emails) × 100%
+- **Per‑detector accuracy** (on its own test cases)
+- **Average processing time** per email (target < 2 sec)
+
+**Expected realistic results:**  
+- Paper PoCs: 95–100% detection  
+- Synthetic: 80–90%  
+- Clean: 0–10% false positives
+
+---
+
+## 🏁 Final Checklist (Before Submission)
+
+- [ ] Repo has all source code, `requirements.txt`, `README.md`.
+- [ ] `test_samples/` contains 15–20 `.eml` files (paper + synthetic + clean).
+- [ ] CLI works: `python main.py --input sample.eml --output report.html --verbose`.
+- [ ] Flask app works locally and (if deployed) on Render.
+- [ ] Unit tests pass (`pytest tests/`).
+- [ ] Integration test passes on full dataset.
+- [ ] Report includes evaluation metrics.
+- [ ] PPT is ready (10–12 slides).
+- [ ] Project report (8–10 pages) submitted.
+- [ ] Live demo URL (optional) is accessible.
+
+---
