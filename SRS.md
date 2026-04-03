@@ -4,7 +4,7 @@
 
 **Version:** 1.0  
 **Team:** 2 Members  
-**Date:** March 30, 2026  
+**Date:** April 3, 2026  
 **Based on:** *Cascading Spy Sheets: Exploiting the Complexity of Modern CSS for Email and Browser Fingerprinting* (NDSS 2025) by Trampert et al.
 
 ---
@@ -58,14 +58,15 @@
   - [Appendix A: Traceability Matrix](#appendix-a-traceability-matrix)
   - [Appendix B: Glossary](#appendix-b-glossary)
   - [Appendix C: Team Role Distribution](#appendix-c-team-role-distribution)
-  - [Appendix D: Implementation Timeline (4 Weeks)](#appendix-d-implementation-timeline-4-weeks)
+  - [Appendix D: Dataset Specification](#appendix-d-dataset-specification)
+  - [Appendix E: Evaluation Metrics](#appendix-e-evaluation-metrics)
 
 ---
 
 ## 1. Introduction
 
 ### 1.1 Purpose
-The purpose of this Software Requirements Specification (SRS) is to provide a complete, detailed description of the **EMailGuard** system—a static analysis tool that detects CSS‑based fingerprinting techniques in HTML email files (`.eml`). The document defines the functional and non‑functional requirements, design constraints, and external interfaces. It serves as the primary reference for development, testing, and evaluation.
+The purpose of this Software Requirements Specification (SRS) is to provide a complete, detailed description of the **EMailGuard** system – a static analysis tool that detects CSS‑based fingerprinting techniques in HTML email files (`.eml`). The document defines all functional and non‑functional requirements, design constraints, external interfaces, and validation criteria. It serves as the primary reference for development, testing, and evaluation.
 
 ### 1.2 Document Conventions
 - **RFC** – Request for Comments (Internet standards)
@@ -74,20 +75,19 @@ The purpose of this Software Requirements Specification (SRS) is to provide a co
 - **NDSS** – Network and Distributed System Security Symposium
 - **CLI** – Command‑Line Interface
 - **UI** – User Interface
-- **REQ‑X** – Requirement identifier
+- **REQ‑X** – Requirement identifier (e.g., REQ‑1)
 
 ### 1.3 Intended Audience
-This SRS is intended for:
 - **Development team** (2 members) – to guide implementation.
-- **Project evaluators** – to understand the scope and rigor.
-- **Security researchers** – to validate the tool’s alignment with academic work.
+- **Project evaluators** – to understand the scope, rigor, and alignment with research.
+- **Security researchers** – to validate the tool’s correspondence to the paper.
 
 ### 1.4 Product Scope
 EMailGuard is a Python‑based tool that:
 - Reads `.eml` files and extracts HTML and CSS content.
 - Detects six distinct CSS fingerprinting techniques documented in the referenced paper.
 - Correlates findings to identify multi‑stage fingerprinting attempts.
-- Assigns a risk score (0–100) with a label: Safe, Moderate, High, or Critical.
+- Assigns a risk score (0–100) with a label: **Safe**, **Moderate**, **High**, or **Critical**.
 - Produces a self‑contained HTML report with detailed findings, paper references, and mitigation suggestions.
 - Offers two interfaces: a command‑line tool and a Flask web application for upload and report viewing.
 
@@ -98,7 +98,7 @@ The tool does **not** render or execute CSS or JavaScript; it performs only stat
   [Official repository: https://github.com/cispa/cascading-spy-sheets]
 
 Specific sections cited throughout this SRS:
-- **Section III‑B** – CSS At‑Rules (overview of at‑rules, including @media, @import, @font‑face, @supports)
+- **Section III‑B** – CSS At‑Rules (overview of @media, @import, @font‑face, @supports)
 - **Section III‑E** – Exfiltration Channels (use of url() to exfiltrate data)
 - **Section IV‑A** – Container Queries (font detection via container queries, font‑relative units)
 - **Section IV‑A1** – Font Detection (using ch, ex, ic, cap units)
@@ -130,14 +130,15 @@ EMailGuard is a new, self‑contained system. It does not replace any existing p
 - **C1:** No network requests allowed during analysis (all static).
 - **C2:** No JavaScript execution; the tool does not evaluate dynamic content.
 - **C3:** Only pattern‑based detection; no CSS rendering engine.
-- **C4:** Must handle standard MIME‑encoded `.eml` files.
+- **C4:** Must handle standard MIME‑encoded `.eml` files (RFC 5322, 2045–2049).
 
 ### 2.5 Assumptions and Dependencies
 - **A1:** Users have legal rights to analyze the provided emails.
 - **A2:** Python environment with required libraries is installed.
-- **A3:** Input `.eml` files conform to RFC 5322 and 2045–2049.
+- **A3:** Input `.eml` files conform to RFC standards.
 - **D1:** Relies on `beautifulsoup4` for HTML parsing.
 - **D2:** Uses `jinja2` for HTML report templating.
+- **D3:** Uses `flask` for web interface.
 
 ---
 
@@ -213,7 +214,7 @@ Each detector implements a specific fingerprinting technique. Detectors are inde
 | REQ‑27 | **Mitigation** | Same as media queries: preload resources. | Section IX‑B |
 
 #### 3.2.7 Finding Object Structure
-Each detector shall produce objects of the following structure:
+Each detector shall produce objects with the following fields:
 
 | Field | Type | Description |
 |-------|------|-------------|
@@ -228,7 +229,7 @@ Each detector shall produce objects of the following structure:
 | ID | Requirement | Description | Paper Reference |
 |----|-------------|-------------|-----------------|
 | REQ‑28 | **Input** | Takes the list of `Finding` objects from all detectors. | – |
-| REQ‑29 | **Multi‑stage detection** | Identifies sequences of detectors that indicate a progressive fingerprinting attempt. For example: `@supports` followed by `@media` followed by `calc()`. | – |
+| REQ‑29 | **Multi‑stage detection** | Identifies sequences of detectors that indicate a progressive fingerprinting attempt. Example: `@supports` followed by `@media` followed by `calc()`. | – |
 | REQ‑30 | **Attack chain** | Detects chains like `@import` (loads external CSS) + `@media` with `url()` (exfiltration). | – |
 | REQ‑31 | **Output** | Produces a list of correlation insights, each containing a description and a boost value (to be added to risk score). | – |
 
@@ -311,16 +312,17 @@ None.
 - Users must comply with applicable privacy laws when analyzing emails.
 
 ### 6.2 Testing Requirements
-- **Unit tests** for each detector using positive test cases from the paper (Listings 1 and 3).
-- **Integration tests** covering full pipeline on sample `.eml` files.
+- **Unit tests** for each detector using positive test cases from the paper (Listings 1 and 3) and negative cases.
+- **Integration tests** covering full pipeline on all dataset emails.
 - **Edge‑case tests** with malformed HTML, empty CSS, obfuscated patterns.
-- **False‑positive tests** on at least 10 clean newsletters.
+- **False‑positive tests** on at least 5–10 clean newsletters.
 
 ### 6.3 Documentation Requirements
 - `README.md` with installation, usage, architecture, and references.
 - This SRS document.
 - In‑line code comments.
 - Project report (8–10 pages) covering design, implementation, evaluation.
+- Presentation slides (10–12 slides).
 
 ### 6.4 Project Deliverables
 | Deliverable | Format | Due (Week) |
@@ -329,7 +331,7 @@ None.
 | SRS | PDF / Markdown | Week 1 |
 | Project report | PDF | Week 4 |
 | Presentation slides | PPT / PDF | Week 4 |
-| Live demo URL | Web link | Week 4 |
+| Live demo URL (optional) | Web link | Week 4 |
 
 ---
 
@@ -355,6 +357,7 @@ None.
 - **Fingerprinting** – Techniques to collect unique attributes of a user’s environment for tracking.
 - **MIME** – Multipurpose Internet Mail Extensions, used to encode email content.
 - **Exfiltration** – The act of sending collected data to an attacker‑controlled server (via `url()` in CSS).
+- **EML** – File format for email messages (RFC 5322).
 
 ---
 
@@ -362,28 +365,46 @@ None.
 
 | Role | Member A | Member B |
 |------|----------|----------|
-| **Parser** | ✅ | – |
-| **CSS Extractor** | ✅ | – |
+| **Parser & CSS Extractor** | ✅ | – |
 | **Detectors** | @import, @media, @container | calc(), @font-face, @supports |
 | **Correlation Engine** | ✅ | – |
 | **Risk Scoring** | – | ✅ |
 | **CLI** | ✅ | – |
 | **Flask Web App** | – | ✅ |
-| **HTML Report** | – | ✅ |
-| **Testing** | Shared | Shared |
-| **Documentation** | Shared | Shared |
-| **PPT** | Technical slides | Design & lead |
+| **HTML Report (Jinja2)** | – | ✅ |
+| **Unit Tests (own detectors)** | ✅ | ✅ |
+| **Integration Tests** | Shared | Shared |
+| **Dataset Creation** | Shared | Shared |
+| **Documentation & PPT** | Technical slides | Design & lead |
+| **Deployment** | ✅ | – |
 
 ---
 
-## Appendix D: Implementation Timeline (4 Weeks)
+## Appendix D: Dataset Specification
 
-| Week | Member A | Member B |
-|------|----------|----------|
-| **1** | Setup, parser, CSS extractor, unit tests | Setup, Flask skeleton, sample emails, report template |
-| **2** | Detectors (import, media, container), correlation (basic) | Detectors (calc, font-face, supports), risk scoring design |
-| **3** | Complete correlation, CLI integration, tests | Finish scoring, Flask integration, report styling |
-| **4** | Deployment, integration tests, performance | Finalize PPT, project report, user guide |
+The system shall be tested on a dataset of **15–20 emails** organised into three categories:
+
+| Category | Count | Description | Source |
+|----------|-------|-------------|--------|
+| **Paper PoCs** | 4–5 | Official attack emails from NDSS 2025 artifact | `pocs/email/` from https://github.com/cispa/cascading-spy-sheets |
+| **Synthetic attacks** | 5–8 | Created by modifying PoCs: nested `@media`, obfuscated `calc()`, multiple `@import`, inline‑only CSS, malformed CSS | Manual creation |
+| **Clean emails** | 5–10 | No CSS fingerprinting; includes legitimate newsletters | Exported from personal email or simple HTML emails |
+
+All dataset files shall be placed in `test_samples/` with subfolders `paper_pocs/`, `synthetic/`, `clean/`.
+
+---
+
+## Appendix E: Evaluation Metrics
+
+The following metrics shall be computed and reported:
+
+| Metric | Calculation | Target |
+|--------|-------------|--------|
+| **Detection rate (Paper PoCs)** | (detected / total paper PoCs) × 100% | 100% |
+| **Detection rate (Synthetic)** | (detected / total synthetic) × 100% | ≥80% |
+| **False positive rate** | (clean flagged / total clean) × 100% | ≤10% |
+| **Average processing time** | Total time / number of emails | <2 sec per email |
+| **Per‑detector accuracy** | For each detector, run on its own test cases | ≥90% |
 
 ---
 
