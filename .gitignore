@@ -1,0 +1,5 @@
+venv/
+__pycache__/
+*.pyc
+test_samples/paper_pocs/*.eml
+test_samples/clean/*.eml
