@@ -1,2 +1,22 @@
-<h2>Email Report</h2>
-<p>Subject: {{ subject }}</p>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Email Report</title>
+</head>
+<body>
+
+<h1>Email Analysis Report</h1>
+
+<h2>Metadata</h2>
+<p><b>Subject:</b> {{ metadata.subject }}</p>
+<p><b>From:</b> {{ metadata.from }}</p>
+<p><b>Date:</b> {{ metadata.date }}</p>
+
+<h2>Extracted CSS</h2>
+
+{% for css in css_snippets %}
+  <pre>{{ css }}</pre>
+{% endfor %}
+
+</body>
+</html>
