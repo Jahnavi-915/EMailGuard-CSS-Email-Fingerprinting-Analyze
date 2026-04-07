@@ -1,0 +1,26 @@
+Subject: Combined Nested Attack
+From: attacker@test.com
+Content-Type: text/html
+
+<html>
+<style>
+@media (max-width: 800px) {
+  @supports (display: grid) {
+    body {
+      background-image: url("http://evil.com/nested1");
+    }
+  }
+}
+
+@container (width > 100px) {
+  div {
+    background-image: url("http://evil.com/container");
+  }
+}
+
+div {
+  width: calc(100% - 5px);
+}
+</style>
+<body>Nested Attack</body>
+</html>

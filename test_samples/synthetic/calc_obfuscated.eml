@@ -1,0 +1,10 @@
+Subject: Calc Obfuscated
+From: attacker@test.com
+Content-Type: text/html
+
+<html>
+<style>
+div { width: CALC ( 100% - 10px ); }
+</style>
+<body>Test</body>
+</html>

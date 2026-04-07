@@ -1,0 +1,16 @@
+Subject: Media Nested
+From: attacker@test.com
+Content-Type: text/html
+
+<html>
+<style>
+@media (max-width: 600px) {
+  @media (orientation: portrait) {
+    body {
+      background-image: url("http://evil.com/nested");
+    }
+  }
+}
+</style>
+<body>Test</body>
+</html>
