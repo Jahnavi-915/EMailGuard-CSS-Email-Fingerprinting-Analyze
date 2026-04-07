@@ -34,6 +34,21 @@ def main():
     findings.extend(detect_fontface(css_snippets))
     findings.extend(detect_supports(css_snippets))
 
+    unique_findings = {}
+    technique_count = {}
+
+    for f in findings:
+        key = (f.technique, f.snippet.strip())
+
+        # count occurrences
+        technique_count[f.technique] = technique_count.get(f.technique, 0) + 1
+
+        # keep unique findings
+        if key not in unique_findings:
+            unique_findings[key] = f
+
+    findings = list(unique_findings.values())
+
     # Step 4: Output results
     if args.verbose:
         print("\n" + "="*60)

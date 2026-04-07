@@ -1,0 +1,10 @@
+Subject: Calc Basic
+From: attacker@test.com
+Content-Type: text/html
+
+<html>
+<style>
+div { width: calc(100% - 20px); }
+</style>
+<body>Test</body>
+</html>
