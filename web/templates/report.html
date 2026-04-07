@@ -2,21 +2,74 @@
 <html>
 <head>
     <title>Email Report</title>
+    <style>
+        body {
+            font-family: Arial;
+            margin: 20px;
+        }
+
+        pre {
+            background: #f4f4f4;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        .box {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+        }
+
+        .critical {
+            border-left: 5px solid red;
+        }
+
+        .high {
+            border-left: 5px solid orange;
+        }
+    </style>
 </head>
 <body>
 
 <h1>Email Analysis Report</h1>
+
+<hr>
 
 <h2>Metadata</h2>
 <p><b>Subject:</b> {{ metadata.subject }}</p>
 <p><b>From:</b> {{ metadata.from }}</p>
 <p><b>Date:</b> {{ metadata.date }}</p>
 
+<hr>
+
 <h2>Extracted CSS</h2>
 
-{% for css in css_snippets %}
-  <pre>{{ css }}</pre>
-{% endfor %}
+{% if css_snippets %}
+    {% for css in css_snippets %}
+        <pre>{{ css }}</pre>
+    {% endfor %}
+{% else %}
+    <p>No CSS found</p>
+{% endif %}
+
+<hr>
+
+<h2>Findings</h2>
+
+{% if findings %}
+    {% for f in findings %}
+        <div class="box {% if f.risk_level == 'Critical' %}critical{% else %}high{% endif %}">
+            <b>Technique:</b> {{ f.technique }} <br>
+            <b>Risk:</b> {{ f.risk_level }} <br>
+            <b>Snippet:</b>
+            <pre>{{ f.snippet }}</pre>
+            <b>Mitigation:</b> {{ f.mitigation }}
+        </div>
+    {% endfor %}
+{% else %}
+    <p>No findings detected</p>
+{% endif %}
 
 </body>
 </html>
