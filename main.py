@@ -7,6 +7,9 @@ from detectors.container_detector import detect_container_queries
 from detectors.calc_detector import detect_calc
 from detectors.fontface_detector import detect_fontface
 from detectors.supports_detector import detect_supports
+from analyzer.correlation_engine import CorrelationEngine
+from risk_scoring import calculate_risk_score
+from reporter.html_reporter import generate_html_report
 
 def main():
     parser = argparse.ArgumentParser(description="EMailGuard - CSS Email Fingerprinting Analyzer")
@@ -25,7 +28,7 @@ def main():
     # Step 2: Extract CSS
     css_snippets = extract_all_css(html)
 
-    # Step 3: Run detectors (Week 2)
+    # Step 3: Run detectors
     findings = []
     findings.extend(detect_import_rules(css_snippets))
     findings.extend(detect_media_queries(css_snippets))
@@ -34,22 +37,22 @@ def main():
     findings.extend(detect_fontface(css_snippets))
     findings.extend(detect_supports(css_snippets))
 
+    # Deduplicate findings
     unique_findings = {}
-    technique_count = {}
-
     for f in findings:
         key = (f.technique, f.snippet.strip())
-
-        # count occurrences
-        technique_count[f.technique] = technique_count.get(f.technique, 0) + 1
-
-        # keep unique findings
         if key not in unique_findings:
             unique_findings[key] = f
-
     findings = list(unique_findings.values())
 
-    # Step 4: Output results
+    # Step 4: Correlation
+    corr_engine = CorrelationEngine(findings)
+    correlation_insights = corr_engine.get_correlation_insights()
+
+    # Step 5: Risk scoring
+    risk = calculate_risk_score(findings, correlation_insights)
+
+    # Step 6: Output
     if args.verbose:
         print("\n" + "="*60)
         print("EMAIL METADATA")
@@ -67,13 +70,23 @@ def main():
             print(f"Snippet: {f.snippet[:200]}...")
             print(f"Mitigation: {f.mitigation}")
 
+        print("\n" + "="*60)
+        print("CORRELATION INSIGHTS")
+        print("="*60)
+        for ins in correlation_insights:
+            print(f"- {ins['description']} (Boost: +{ins['boost']})")
+
+        print("\n" + "="*60)
+        print(f"RISK SCORE: {risk['score']}/100 ({risk['label']})")
+        print(f"  Base total: {risk['base_total']} | Boost total: {risk['boost_total']}")
+        print("="*60)
+
     if args.summary:
-        # Placeholder – full risk scoring will be added in Week 3
-        print(f"\nNumber of findings: {len(findings)}")
+        print(f"{risk['label']} ({risk['score']}/100)")
     else:
-        print(f"\nAnalysis complete. Found {len(findings)} CSS fingerprinting technique(s).")
-        if not args.verbose:
-            print("Use --verbose to see details.")
+        # Generate HTML report
+        generate_html_report(findings, metadata, risk, correlation_insights, args.output)
+        print(f"\nAnalysis complete. HTML report saved to: {args.output}")
 
     return 0
 

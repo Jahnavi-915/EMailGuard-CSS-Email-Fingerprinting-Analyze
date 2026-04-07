@@ -2,7 +2,6 @@
 from typing import List, Dict, Any
 from models import Finding
 
-# Base score mapping
 BASE_SCORES = {
     "Critical": 30,
     "High": 15,
@@ -21,7 +20,7 @@ def calculate_risk_score(findings: List[Finding], correlation_insights: List[Dic
         }
     """
     base_total = sum(BASE_SCORES.get(f.risk_level, 0) for f in findings)
-    boost_total = sum(ins["boost"] for ins in correlation_insights)
+    boost_total = sum(ins.get("boost", 0) for ins in correlation_insights)  # .get() for safety
     raw_score = base_total + boost_total
     score = min(100, raw_score)
 
