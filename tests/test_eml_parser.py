@@ -1,23 +1,37 @@
-import pytest
+import tempfile
 from eml_parser import parse_eml
-from pathlib import Path
 
-def test_parse_paper_poc_officedetect():
-    """Test that officedetect.eml parses and returns HTML."""
-    eml_path = Path("test_samples/paper_pocs/officedetect.eml")
-    if not eml_path.exists():
-        pytest.skip("officedetect.eml not found")
-    
-    html, metadata = parse_eml(str(eml_path))
-    assert html is not None
-    assert "html" in html.lower()
-    assert metadata['subject'] is not None  # subject may be present
 
-def test_parse_paper_poc_osdetect():
-    eml_path = Path("test_samples/paper_pocs/osdetect.eml")
-    if not eml_path.exists():
-        pytest.skip("osdetect.eml not found")
-    
-    html, metadata = parse_eml(str(eml_path))
+def test_parse_simple_email():
+    # 🔹 Step 1: Create dummy email content
+    eml_content = """Subject: Test Email
+From: test@example.com
+Date: Mon, 1 Jan 2024 10:00:00 +0000
+Content-Type: text/html; charset="utf-8"
+
+<html>
+  <body>
+    <h1>Hello World</h1>
+    <style>
+      body { color: red; }
+    </style>
+  </body>
+</html>
+"""
+
+    # 🔹 Step 2: Create temporary file
+    with tempfile.NamedTemporaryFile(delete=False, suffix=".eml") as tmp:
+        tmp.write(eml_content.encode("utf-8"))
+        tmp_path = tmp.name
+
+    # 🔹 Step 3: Run parser
+    html, metadata = parse_eml(tmp_path)
+
+    # 🔹 Step 4: Assertions
     assert html is not None
-    assert "calc" in html or "container" in html.lower()
+    assert "<html>" in html.lower()
+    assert "hello world" in html.lower()
+
+    assert metadata["subject"] == "Test Email"
+    assert metadata["from"] == "test@example.com"
+    assert "2024" in metadata["date"]
