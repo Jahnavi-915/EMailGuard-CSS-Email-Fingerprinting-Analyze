@@ -2,11 +2,12 @@
 from typing import List, Dict, Any
 from models import Finding
 
+# Base scores – increased to reflect real risk
 BASE_SCORES = {
-    "Critical": 30,
-    "High": 15,
-    "Medium": 8,
-    "Low": 3
+    "Critical": 40,
+    "High": 25,
+    "Medium": 15,
+    "Low": 8
 }
 
 def calculate_risk_score(findings: List[Finding], correlation_insights: List[Dict[str, Any]]) -> dict:
@@ -20,15 +21,16 @@ def calculate_risk_score(findings: List[Finding], correlation_insights: List[Dic
         }
     """
     base_total = sum(BASE_SCORES.get(f.risk_level, 0) for f in findings)
-    boost_total = sum(ins.get("boost", 0) for ins in correlation_insights)  # .get() for safety
+    boost_total = sum(ins.get("boost", 0) for ins in correlation_insights)
     raw_score = base_total + boost_total
-    score = min(100, raw_score)
+    score = min(100, max(0, raw_score))
 
-    if score <= 20:
+    # Adjusted thresholds – more sensitive to fingerprinting
+    if score <= 10:
         label = "Safe"
-    elif score <= 45:
+    elif score <= 30:
         label = "Moderate"
-    elif score <= 70:
+    elif score <= 60:
         label = "High"
     else:
         label = "Critical"
