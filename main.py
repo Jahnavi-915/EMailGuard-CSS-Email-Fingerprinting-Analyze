@@ -7,7 +7,7 @@ from detectors.container_detector import detect_container_queries
 from detectors.calc_detector import detect_calc
 from detectors.fontface_detector import detect_fontface
 from detectors.supports_detector import detect_supports
-from analyzer.correlation_engine import CorrelationEngine
+from correlation_engine import CorrelationEngine
 from risk_scoring import calculate_risk_score
 from reporter.html_reporter import generate_html_report
 
