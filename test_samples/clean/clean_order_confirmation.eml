@@ -1,0 +1,13 @@
+From: orders@shop.com
+Subject: Your Order #12345 Confirmed
+Date: Mon, 7 Apr 2026 11:30:00 +0000
+MIME-Version: 1.0
+Content-Type: text/html; charset="UTF-8"
+
+<html>
+<body>
+<h2>Thank you for your purchase!</h2>
+<p>Order number: 12345</p>
+<p>Total: $49.99</p>
+</body>
+</html>

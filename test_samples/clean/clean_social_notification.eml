@@ -1,0 +1,13 @@
+From: notifications@social.com
+Subject: You have a new message
+Date: Mon, 7 Apr 2026 12:15:00 +0000
+MIME-Version: 1.0
+Content-Type: text/html; charset="UTF-8"
+
+<html>
+<body>
+<p>Hi User,</p>
+<p>You received a message from Alice.</p>
+<p><a href="https://social.com/inbox">View message</a></p>
+</body>
+</html>

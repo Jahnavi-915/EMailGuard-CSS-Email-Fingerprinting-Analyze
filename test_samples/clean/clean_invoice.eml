@@ -1,0 +1,16 @@
+From: billing@company.com
+Subject: Invoice #INV-2026-001
+Date: Mon, 7 Apr 2026 16:10:00 +0000
+MIME-Version: 1.0
+Content-Type: text/html; charset="UTF-8"
+
+<html>
+<body>
+<h3>Invoice</h3>
+<table border="1">
+<tr><th>Item</th><th>Price</th></tr>
+<tr><td>Product A</td><td>$10</td></tr>
+</table>
+<p>Due by April 30, 2026</p>
+</body>
+</html>

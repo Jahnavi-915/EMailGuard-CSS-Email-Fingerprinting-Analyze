@@ -1,0 +1,14 @@
+From: welcome@service.com
+Subject: Welcome to Our Platform!
+Date: Mon, 7 Apr 2026 14:20:00 +0000
+MIME-Version: 1.0
+Content-Type: text/html; charset="UTF-8"
+
+<html>
+<body style="background-color: #f4f4f4; padding: 20px;">
+<div style="max-width: 600px; margin: auto; background: white; padding: 20px;">
+<h2>Welcome!</h2>
+<p>Get started by completing your profile.</p>
+</div>
+</body>
+</html>
