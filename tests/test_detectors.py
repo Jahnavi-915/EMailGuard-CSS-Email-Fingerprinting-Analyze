@@ -2,6 +2,9 @@ import pytest
 from detectors.import_detector import detect_import_rules
 from detectors.media_detector import detect_media_queries
 from detectors.container_detector import detect_container_queries
+from detectors.calc_detector import detect_calc
+from detectors.fontface_detector import detect_fontface
+from detectors.supports_detector import detect_supports
 
 def test_import_detector():
     css = ["@import url('http://evil.com/style.css');"]
@@ -36,3 +39,38 @@ def test_container_with_font_units():
     findings = detect_container_queries(css)
     assert len(findings) == 1
     assert findings[0].risk_level == "High"
+
+def test_calc_detection():
+    css = ["div { width: calc(100% - 10px); }"]
+    findings = detect_calc(css)
+    assert len(findings) == 1
+    assert findings[0].risk_level == "High"
+
+
+def test_calc_no_detection():
+    css = ["div { width: 100px; }"]
+    findings = detect_calc(css)
+    assert len(findings) == 0
+
+def test_fontface_detection():
+    css = ["@font-face { src: url('http://evil.com/font.woff'); }"]
+    findings = detect_fontface(css)
+    assert len(findings) == 1
+    assert findings[0].risk_level == "High"
+
+
+def test_fontface_ignore_data_url():
+    css = ["@font-face { src: url('data:font/woff;base64,...'); }"]
+    findings = detect_fontface(css)
+    assert len(findings) == 0
+
+def test_supports_detection():
+    css = [ "@supports (display: grid) { body { background-image: url('http://evil.com'); } }"]
+    findings = detect_supports(css)
+    assert len(findings) == 1
+    assert findings[0].risk_level == "Critical"
+
+def test_supports_no_url():
+    css = ["@supports (display: grid) { body { color: red; } }"]
+    findings = detect_supports(css)
+    assert len(findings) == 0

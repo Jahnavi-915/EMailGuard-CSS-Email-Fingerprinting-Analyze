@@ -4,6 +4,9 @@ from css_extractor import extract_all_css
 from detectors.import_detector import detect_import_rules
 from detectors.media_detector import detect_media_queries
 from detectors.container_detector import detect_container_queries
+from detectors.calc_detector import detect_calc
+from detectors.fontface_detector import detect_fontface
+from detectors.supports_detector import detect_supports
 
 def main():
     parser = argparse.ArgumentParser(description="EMailGuard - CSS Email Fingerprinting Analyzer")
@@ -27,6 +30,9 @@ def main():
     findings.extend(detect_import_rules(css_snippets))
     findings.extend(detect_media_queries(css_snippets))
     findings.extend(detect_container_queries(css_snippets))
+    findings.extend(detect_calc(css_snippets))
+    findings.extend(detect_fontface(css_snippets))
+    findings.extend(detect_supports(css_snippets))
 
     # Step 4: Output results
     if args.verbose:
