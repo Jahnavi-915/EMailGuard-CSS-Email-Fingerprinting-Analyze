@@ -28,11 +28,37 @@
         .high {
             border-left: 5px solid orange;
         }
+
+        .moderate {
+            border-left: 5px solid gold;
+        }
+
+        .safe {
+            border-left: 5px solid green;
+        }
     </style>
 </head>
 <body>
 
 <h1>Email Analysis Report</h1>
+
+<hr>
+
+<!-- 🔥 NEW: Risk Summary -->
+<h2>Risk Summary</h2>
+
+<div class="box 
+    {% if risk.label == 'Critical' %}critical
+    {% elif risk.label == 'High' %}high
+    {% elif risk.label == 'Moderate' %}moderate
+    {% else %}safe
+    {% endif %}
+">
+    <p><b>Final Score:</b> {{ risk.score }}</p>
+    <p><b>Risk Level:</b> {{ risk.label }}</p>
+    <p><b>Base Score:</b> {{ risk.base_total }}</p>
+    <p><b>Correlation Boost:</b> {{ risk.boost_total }}</p>
+</div>
 
 <hr>
 
@@ -55,11 +81,27 @@
 
 <hr>
 
+<!-- 🔥 NEW: Correlation Insights -->
+<h2>Correlation Insights</h2>
+
+{% if insights %}
+    {% for ins in insights %}
+        <div class="box high">
+            <b>Pattern:</b> {{ ins.description }} <br>
+            <b>Boost:</b> +{{ ins.boost }}
+        </div>
+    {% endfor %}
+{% else %}
+    <p>No correlation patterns detected</p>
+{% endif %}
+
+<hr>
+
 <h2>Findings</h2>
 
 {% if findings %}
     {% for f in findings %}
-        <div class="box {% if f.risk_level == 'Critical' %}critical{% else %}high{% endif %}">
+        <div class="box {% if f.risk_level == 'Critical' %}critical{% elif f.risk_level == 'High' %}high{% else %}moderate{% endif %}">
             <b>Technique:</b> {{ f.technique }} <br>
             <b>Risk:</b> {{ f.risk_level }} <br>
             <b>Snippet:</b>

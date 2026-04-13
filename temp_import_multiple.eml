@@ -1,0 +1,11 @@
+Subject: Import Attack
+From: attacker@test.com
+Content-Type: text/html
+
+<html>
+<style>
+@import url("http://evil.com/a.css");
+@import url("http://evil.com/b.css");
+</style>
+<body>Test</body>
+</html>

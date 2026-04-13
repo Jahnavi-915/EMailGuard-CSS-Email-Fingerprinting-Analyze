@@ -1,0 +1,13 @@
+From: newsletter@example.com
+Subject: Weekly Tech Newsletter
+Date: Mon, 7 Apr 2026 10:00:00 +0000
+MIME-Version: 1.0
+Content-Type: text/html; charset="UTF-8"
+
+<html>
+<body style="font-family: Arial, sans-serif; color: #333;">
+<h1>This Week in Tech</h1>
+<p>Here are the top stories...</p>
+<p style="color: #666;">Unsubscribe link</p>
+</body>
+</html>
