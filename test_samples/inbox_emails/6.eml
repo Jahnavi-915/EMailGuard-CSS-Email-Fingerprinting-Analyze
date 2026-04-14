@@ -1,0 +1,1337 @@
+Delivered-To: jahnavipathi530@gmail.com
+Received: by 2002:aa7:c54d:0:b0:66a:9297:46fe with SMTP id s13csp478364edr;
+        Wed, 25 Mar 2026 11:19:51 -0700 (PDT)
+X-Received: by 2002:a05:6808:c170:b0:467:fcc9:7948 with SMTP id 5614622812f47-46a5c60fc25mr1922026b6e.20.1774462790787;
+        Wed, 25 Mar 2026 11:19:50 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1774462790; cv=none;
+        d=google.com; s=arc-20240605;
+        b=KKccX+StTe1jQS+RsaleQFL9q11CTWH0IGzprWg7rqr90+fkOxcnvWoQEadt7C3zYa
+         7cAGNbar0uTrcG/th1wDAb4z42cgoyKmRrLxi+cQmEvpRkhsSRcWX9adYy8aKpH8sGGL
+         8/s5rX/U2zXujtukR9O5h6Pey6XSQOu/gtukMIrhmNRYh/Su0tJc8oFHAA97rDB3aS/1
+         pOcubdqn5mzPCmjK//wsij/+9l1jjVTHx6xTj4SzVZImCT/gEl+K/A8xjwuiHW5+X9zb
+         3Qw9ZFVvhN5BijXQTUY9gk+NDQk4x51t7+jQ7a/mmnjJsGDMyiF9P4xsIIlu/HZs3sse
+         XODw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=to:from:subject:date:message-id:feedback-id:mime-version
+         :dkim-signature;
+        bh=2G9nBjwtfNUgJX0JJpIXY7Igf0rQm/EpKTDu+zwAIdA=;
+        fh=+aA4ySGBLdLaXUmfnKAH5HOGhCwvvEBbnMc6qtspXNA=;
+        b=em6FC+rZzqdgZUMtaJmza9x1s6sAuIv0VzUoOyeZ7JtX+3sauqzH9COgsO/aPaAOal
+         d3JgcqKk2ZacYVc8EY/jxgdJQjvrE4vo75XNvFypjv/xsMiLXRN4UEh1fkYJ33oF5CRh
+         EXCElzt2VYRmsw8yRRUJSQ6KzpXRJSmMGTfc095UzRYVpbw6wYh9IwPk3LXx6mO30YCB
+         6ItwVTU41XxpP3J3pnQeVJQ2YnoCDigiXS1ot9K7Ifj0oHLHyDRVznFZLrEJ8MMMs8g7
+         sPryKZSNJ4Aw6C4i0v1nfwh6s0sIhNz1ZXEoa9KYhMVFmitMfoOHWCTfjmwCELtnU2z7
+         bMHg==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@google.com header.s=20251104 header.b=F5DSM4cX;
+       spf=pass (google.com: domain of 3rifearykapkgpsnt-sfdfjqut-opsfqmzhpphmf.dpn@trix.bounces.google.com designates 209.85.220.69 as permitted sender) smtp.mailfrom=3RifEaRYKAPkgpsnt-sfdfjqut-opsfqmzhpphmf.dpn@trix.bounces.google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com;
+       dara=pass header.i=@gmail.com
+Return-Path: <3RifEaRYKAPkgpsnt-sfdfjqut-opsfqmzhpphmf.dpn@trix.bounces.google.com>
+Received: from mail-sor-f69.google.com (mail-sor-f69.google.com. [209.85.220.69])
+        by mx.google.com with SMTPS id 5614622812f47-46a703b6315sor103302b6e.0.2026.03.25.11.19.50
+        for <jahnavipathi530@gmail.com>
+        (Google Transport Security);
+        Wed, 25 Mar 2026 11:19:50 -0700 (PDT)
+Received-SPF: pass (google.com: domain of 3rifearykapkgpsnt-sfdfjqut-opsfqmzhpphmf.dpn@trix.bounces.google.com designates 209.85.220.69 as permitted sender) client-ip=209.85.220.69;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@google.com header.s=20251104 header.b=F5DSM4cX;
+       spf=pass (google.com: domain of 3rifearykapkgpsnt-sfdfjqut-opsfqmzhpphmf.dpn@trix.bounces.google.com designates 209.85.220.69 as permitted sender) smtp.mailfrom=3RifEaRYKAPkgpsnt-sfdfjqut-opsfqmzhpphmf.dpn@trix.bounces.google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com;
+       dara=pass header.i=@gmail.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1774462790; x=1775067590; dara=google.com;
+        h=to:from:subject:date:message-id:feedback-id:mime-version:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=2G9nBjwtfNUgJX0JJpIXY7Igf0rQm/EpKTDu+zwAIdA=;
+        b=F5DSM4cXOQ8LVriLe7MsItPVTK7aXdHU1j25UX3X1zUmgjjxJoM5IDdl0ZMYR3zNBm
+         YcJt04f6TQexJtCOUYGRft12I5EOx5P+/DNBEPGCQxkl2ssCM8GqrT3q3tDbyRcqvp5v
+         a9DC6Wfrz6h7PlYISv885L+o2n1jW0YKy6uSHUXbaRYzkMu70nnsX3Il3VeOSZEfUSkK
+         Z1uES2JkiQ6swpALQfFuVLX3Ub5DemJ649NMRPvNtxeb961mhFyVYnknOC0hja8LZ++x
+         EIE2f8V/Imk5WQ17JPNYaoCKBqSJ9hkNtJs3EMeMAnxx6pqen+Y9tL+fLs2EpUOfBjAl
+         zACQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1774462790; x=1775067590;
+        h=to:from:subject:date:message-id:feedback-id:mime-version
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=2G9nBjwtfNUgJX0JJpIXY7Igf0rQm/EpKTDu+zwAIdA=;
+        b=OXf6o6abHuzN3OMyt2z1WbzeQh04K186cl4CuXk1JdLxtvrRy4HmANbVuNhWq4YcO8
+         frAhzjagCM5cvYF+f5ZPxrpcCfL7SLPV8EnSj0lmzXRppOktKosNMcvnTRUn1EUA+O18
+         EgceY030WHeLCv/PRTfLOzFv/yZT82+l91ByVl95BAh5exfAyTpo0S/x5Mh7QOFI+Scu
+         4yuGnAgfKaAkI+4YWdak/ml63b/BEyLwsRyWPfqB0wK3qbpYN8Qks8qLsBFIm7Cl5gYT
+         rZETaG3NoF37dOZ2JKpFnd9Xvacls74UeS6+gonRlCHl27TRLgQx9a/Jv+uM+5VhwNgo
+         qUzQ==
+X-Gm-Message-State: AOJu0YxAUFmRN5amL6dOM4lT7TQMqcZcG3nAVbSprtO4l71TzO4LvWFF
+	9Up6yM5PRNSFuiIPp9S4fRY0ME8kAe9oQgWasbhDvlXa5p796qGgMx9HIqlbLX2TExHWNHWxP6A
+	fYu/YmcWzSVYKHnVHkPjXqGYV5fB+jihuoKwxSVc=
+MIME-Version: 1.0
+X-Received: by 2002:a05:6820:210c:b0:67c:f9c:ad28 with SMTP id
+ 006d021491bc7-67dff59d87emr2303963eaf.34.1774462790339; Wed, 25 Mar 2026
+ 11:19:50 -0700 (PDT)
+Feedback-ID: MailTypeResponseReceipt:GoogleForms
+X-GoogleForms-FormId: e/1FAIpQLSfyjdaD97-BUbqgNoV4Wfn-28HO9--Aq72QNnFt0BqT_Aj4Qg
+X-GoogleForms-CustomerDisplayName: Educational
+Message-ID: <autogen-java-aafe01b7-0677-4043-b4c9-1f884684c40b@google.com>
+Date: Wed, 25 Mar 2026 18:19:50 +0000
+Subject: Thanks for filling out this form: Application Form for Summer
+ Internship Programme - 2026
+From: Forms Response Receipts <forms-receipts-noreply@google.com>
+To: jahnavipathi530@gmail.com
+Content-Type: multipart/alternative; boundary="000000000000491ad9064ddd5055"
+
+--000000000000491ad9064ddd5055
+Content-Type: text/plain; charset="UTF-8"; format=flowed; delsp=yes
+
+Google Forms
+
+
+Thanks for filling out this form: Application Form for Summer Internship  
+Programme - 2026
+
+
+You're receiving this email because you filled out the following form using  
+your email address. This form is owned by Educational. Make sure you  
+recognize and trust this form before copying or clicking on any links. If  
+it looks suspicious, report it.
+
+Here's what was received.
+
+Edit response
+
+
+Application Form for Summer Internship Programme - 2026
+
+
+Email *
+
+
+jahnavipathi530@gmail.com
+
+
+Details regarding Memorandum of Understanding (MoU)Institute(s), College  
+etc.
+
+Carefully select the option(s)
+
+
+Presently Studying/enrolled in MoU signed Institutes with IIT Mandi *
+
+
+Yes
+
+
+No (Not eligible)
+
+
+Select the Institute(s) (MoU signed Institutes)
+*
+
+
+7 Malaviya National Institute of Technology, Jaipur
+
+
+
+No Objection Certificate (NOC) from Home institute
+
+
+The applicant are required obtained the No Objection Certificate (NOC) from  
+current institute for an internship, printed on the college letterhead and  
+signed by the Head of Department (HoD) or Training & Placement Officer  
+(TPO), stating that the institution has no objection to you pursuing the  
+internship.
+
+(NoC format available in link:  
+https://cloud.iitmandi.ac.in/f/fb3ff9074eb84dccabc7/).
+
+
+Upload the NOC for Internship from Home institute (.pdf file format) *
+
+
+Submitted files
+
+
+
+PDF Mandi_noc - Jahnavi Pathi.pdf
+
+
+Details of Current Degree programme:
+
+
+Name of Degree programme currently studying(Pre-final) *
+
+
+Bachelor of Technology
+
+
+Current semester(s) *
+
+
+6BE/B.Tech
+
+
+
+Maximum Duration of Degree Programme (in Years)
+*
+
+
+1
+
+
+2
+
+
+3
+
+
+4
+
+
+5
+
+
+CGPA upto previous semester(s): *
+
+
+7.79
+
+
+Upload scanned copy of the authenticated Mark sheets of previous semesters
+*
+
+in single .pdf file format
+
+
+Submitted files
+
+
+
+PDF gradesheets - Jahnavi Pathi.pdf
+
+
+Personal Information
+
+
+Name of Applicant(as per Matriculation certificate)
+*
+
+
+Pathi Jahnavi
+
+
+Father's Name
+*
+
+
+P. Subba Rao
+
+
+Complete Postal address:
+*
+
+
+H.No: 5-12-6, Mamatha Nagar, Stantan puram, Kurnool, Andhra Pradesh, India  
+518006
+
+
+State
+*
+
+
+Andhra Pradesh
+
+
+City
+*
+
+
+Kurnool
+
+
+Gender *
+
+
+Male
+
+
+Female
+
+
+Other
+
+
+Phone Number
+*
+
+
+9550891944
+
+
+Emergency Contact No.
+*
+
+
+9550891944
+
+
+School/ Center & Area of Interest related information
+
+
+Note:
+
+For School/ Centre/ Areas of research / Faculty (Guide)related information  
+please visit the IIT Mandi Website: https://www.iitmandi.ac.in/
+
+
+Select the School/ Center to applying at IIT Mandi
+*
+
+
+School of Computing and Electrical Engineering (SCEE)
+
+
+
+Area of Interest
+*
+
+
+AI, ML, Blockchain, CNS
+
+
+Upload the scanned copy of CV/ Resume (.pdf format) *
+
+
+Submitted files
+
+
+
+PDF PATHI_JAHNAVI_2023UCP1595 - Jahnavi Pathi.pdf
+
+
+Remarks(if any)
+
+
+Nothing
+
+
+Academic Details
+
+
+Class
+*
+
+
+10 (Matriculation)
+
+
+
+Subjects
+*
+
+
+Mathematics, Science, Social Science, English, Telugu
+
+
+Board
+*
+
+
+CBSE
+
+
+School/institute etc. Name
+*
+
+
+St. Joseph's English School
+
+
+Year of Passing
+*
+
+
+2021
+
+
+Grade/ CGPA/ %
+*
+
+
+96.2%
+
+
+Upload the scanned copy of 10th Mark sheet (only .pdf file format)
+*
+
+
+Submitted files
+
+
+
+PDF ssc - Jahnavi Pathi.pdf
+
+
++2 Class / Diploma details
+
+
+Name School/institute etc. Name
+*
+
+
+Srujana Junior College
+
+
+Name of Board
+*
+
+
+Andhra Pradesh Board of Intermediate Education
+
+
+Year of Passing
+*
+
+
+2023
+
+
+Grade/ CGPA/ %
+*
+
+
+98.8
+
+
+Upload the scanned copy of 12th/ Diploma Mark sheet/ Certificate (only .pdf  
+file format)
+*
+
+
+Submitted files
+
+
+
+PDF inter - Jahnavi Pathi.pdf
+
+
+UG Degree Details
+
+
+Name of Degree Programme
+*
+
+
+B.Tech
+
+
+Name of College/ institute Name:
+*
+
+
+Malaviya National Institute of Technology Jaipur
+
+
+Name of University
+*
+
+
+Malaviya National Institute of Tehnology
+
+
+Current Semester registered
+
+
+6
+
+
+CGPA upto previous semester
+
+
+7.79
+
+
+If completed UG Degree mentioned final CGPA/ %
+
+
+NA
+
+
+Upload the scanned copy of UG Degree certificate with semester wise Mark  
+sheet(s) (only .pdf file format)if graduated other wise upload Consolidated  
+marksheet till last semester *
+
+
+Submitted files
+
+
+
+PDF gradesheets_compressed - Jahnavi Pathi.pdf
+
+
+PG Degree Details
+
+
+Name of Degree Programme
+
+
+Name School/ College/ institute etc.
+
+
+Name of University
+
+
+Year of Passing
+
+
+Current Semester Registered
+
+
+CGPA upto last semester
+
+
+CGPA/ %
+
+
+Upload the scanned copy of PG degree Consolidated marksheet till last  
+semester
+
+
+No files submitted
+
+
+Remarks (if any)
+
+
+Remarks
+
+
+I have prior experience in C++, Data Structures, and basic Machine  
+Learning. I am keen to explore new concepts and work under guidance.
+
+
+Create your own Google Form
+
+Does this form look suspicious? Report
+
+
+
+--000000000000491ad9064ddd5055
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<html><head><style nonce=3D"ATDytzAtPTo4F-5_QEnSzA">@import url(https://fon=
+ts.googleapis.com/css?family=3DGoogle+Sans:400,500|Roboto:300,400,400i,500,=
+700&subset=3Dlatin,vietnamese,latin-ext,cyrillic,greek,cyrillic-ext,greek-e=
+xt);</style><style nonce=3D"ATDytzAtPTo4F-5_QEnSzA">[class=3D"x_body-conten=
+t-wrapper"] * {white-space: normal !important;}</style></head><body dir=3D"=
+ltr" style=3D"color: #202124;font-family: Roboto,Helvetica,Arial,sans-serif=
+;font-size: 14px; font-weight: 400; line-height: 20px;text-align: start; wo=
+rd-wrap: break-word; margin: 0; padding: 0; height: 100%; width: 100%;"><ta=
+ble border=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"background-co=
+lor:rgb(103,58,183);" width=3D"100%" role=3D"presentation"><tbody><tr heigh=
+t=3D"64px"><td style=3D"padding: 0 24px;"><img alt=3D"Google Forms" height=
+=3D"26px" style=3D"display: inline-block; margin: 0; vertical-align: middle=
+;" width=3D"143px" src=3D"https://www.gstatic.com/docs/forms/google_forms_l=
+ogo_lockup_white_2x.png"></td></tr></tbody></table><div class=3D"body-conte=
+nt-wrapper" style=3D"padding: 12px; background-color: rgb(237,231,246);"><d=
+iv style=3D"margin: 0 auto; max-width: 640px; min-width: 154px;"><div style=
+=3D"border: 1px solid #dadce0; padding: 20px 12px;background-color: #fff; b=
+order-radius: 8px; margin-bottom: 12px;padding: 20px;"><h1 style=3D"color: =
+#202124;font-family: Roboto,Helvetica,Arial,sans-serif;font-size: 20px; fon=
+t-weight: 400; line-height: 28px;margin: 0 0 12px;">Thanks for filling out =
+this form: <a href=3D"https://docs.google.com/forms/d/e/1FAIpQLSfyjdaD97-BU=
+bqgNoV4Wfn-28HO9--Aq72QNnFt0BqT_Aj4Qg/viewform?pli=3D1&amp;pli=3D1&amp;usp=
+=3Dmail_form_link" target=3D"_blank" style=3D"white-space: pre-wrap;"><b>Ap=
+plication Form for Summer Internship Programme - 2026</b><span></span></a><=
+/h1><table role=3D"status" border=3D"0" cellpadding=3D"0" cellspacing=3D"0"=
+ width=3D"100%" class=3D"freebirdEmailPersistentBannerContainer " style=3D"=
+font-size: 13px; font-family: &#39;Roboto&#39;; font-weight: 400; line-heig=
+ht: 16px; background-color: #f2f2f2; padding: 2px; margin-bottom: 10px; bor=
+der-radius: 8px; color: black; text-align: left; "><tr><td class=3D"freebir=
+dEmailPersistentBannerMessage" style=3D"flex-grow: 1; padding: 10px;">You=
+=E2=80=99re receiving this email because you filled out the following form =
+using your email address.<b> This form is owned by Educational.</b> Make su=
+re you recognize and trust this form before copying or clicking on any link=
+s. If it looks suspicious, <b><a href=3D"https://docs.google.com/forms/u/0/=
+d/e/1FAIpQLSfyjdaD97-BUbqgNoV4Wfn-28HO9--Aq72QNnFt0BqT_Aj4Qg/reportabuse?pl=
+i=3D1&amp;source=3Dhttps://docs.google.com/forms/d/e/1FAIpQLSfyjdaD97-BUbqg=
+NoV4Wfn-28HO9--Aq72QNnFt0BqT_Aj4Qg/viewform?pli%3D1%26pli%3D1&amp;usp=3Dmai=
+l_receipt_abuse" target=3D"_blank" style=3D"color: inherit;">report it</a><=
+/b>. </td></tr></table>Here's what was received.<div style=3D"margin-top: 1=
+6px;"><div style=3D"margin-top: 24px"><a href=3D"https://docs.google.com/fo=
+rms/d/e/1FAIpQLSfyjdaD97-BUbqgNoV4Wfn-28HO9--Aq72QNnFt0BqT_Aj4Qg/viewform?p=
+li=3D1&amp;pli=3D1&amp;edit2=3D2_ABaOnudr7qGRzvODsRdC4B8SFh26v_Z70LBLx14uUM=
+ZnLDxp8Dj8s0tzNfGzhp7muw" target=3D"_blank" style=3D"border-radius: 4px;fon=
+t-family: &#39;Google Sans&#39;,Roboto,Helvetica,Arial,sans-serif;font-size=
+: 14px; font-weight: 500; padding: 8px 24px; text-align: center; text-decor=
+ation: none;background-color: rgb(103,58,183); color: #fff;">Edit response<=
+/a></div><div itemprop=3D"action" itemscope itemtype=3D"http://schema.org/V=
+iewAction"><meta itemprop=3D"url" content=3D"https://docs.google.com/forms/=
+d/e/1FAIpQLSfyjdaD97-BUbqgNoV4Wfn-28HO9--Aq72QNnFt0BqT_Aj4Qg/viewform?pli=
+=3D1&amp;pli=3D1&amp;edit2=3D2_ABaOnudr7qGRzvODsRdC4B8SFh26v_Z70LBLx14uUMZn=
+LDxp8Dj8s0tzNfGzhp7muw&amp;usp=3Dmail_goto_form"><meta itemprop=3D"name" co=
+ntent=3D"Edit your response"></div></div></div><div style=3D"border-bottom:=
+ 1px solid #dadce0; border-left: 1px solid #dadce0; border-right: 1px solid=
+ #dadce0; border-top: 8px solid rgb(103,58,183); padding: 20px;background-c=
+olor: #fff; border-radius: 8px; margin-bottom: 12px;"><h1 dir=3D"ltr" style=
+=3D"font-family: Roboto,Helvetica,Arial,sans-serif;font-size: 32px; font-we=
+ight: 400; line-height: 42px;white-space: pre-wrap;margin: 0 0 12px;"><b>Ap=
+plication Form for Summer Internship Programme - 2026</b><span></span></h1>=
+<div style=3D"white-space: pre-wrap;margin-bottom: 12px;"></div></div><div =
+style=3D"border: 1px solid #dadce0; padding: 20px 12px;background-color: #f=
+ff; border-radius: 8px; margin-bottom: 12px;margin-bottom: 12px;"><div styl=
+e=3D"padding: 0 12px;"><h2 dir=3D"auto" style=3D"color: #202124;font-family=
+: Roboto,Helvetica,Arial,sans-serif;font-size: 16px; font-weight: 400; line=
+-height: 24px;white-space: pre-wrap;margin: 0 0 16px;">Email<span style=3D"=
+color: #d93025;" aria-label=3D"Required question"> *</span></h2></div><div =
+style=3D"padding: 0 12px;"><div style=3D"width: 100%;"><div dir=3D"auto" st=
+yle=3D"white-space: pre-wrap;border-bottom: 1px dotted rgba(0,0,0,0.38);mar=
+gin: 12px 0 8px; min-height: 20px;display: inline-block; max-width: 100%; m=
+in-width: 50%;">jahnavipathi530@gmail.com</div></div></div></div><div style=
+=3D"border-bottom: 1px solid #dadce0; border-left: 1px solid #dadce0; borde=
+r-right: 1px solid #dadce0; border-top: 8px solid rgb(103,58,183); padding:=
+ 0;background-color: #fff; border-radius: 8px; margin-bottom: 12px;margin-b=
+ottom: 12px;"><div style=3D"padding: 0 ;"><h2 dir=3D"auto" style=3D"color: =
+#fff;font-family: Roboto,Helvetica,Arial,sans-serif;font-size: 16px; font-w=
+eight: 400; line-height: 24px;background-color: rgb(103,58,183); margin: 0;=
+ padding: 4px 24px 12px;"><b>Details regarding=C2=A0
+<span>Memorandum of Understanding (MoU)</span>Institute(s), College etc.=C2=
+=A0</b></h2><div dir=3D"auto" style=3D"color: #202124;font-family: Roboto,H=
+elvetica,Arial,sans-serif;font-size: 12px; font-weight: 400; letter-spacing=
+: .25px; line-height: 16px;white-space: pre-wrap;margin: 24px 17px;">Carefu=
+lly select the option(s)</div></div><div style=3D"padding: 0 12px;"></div><=
+/div><div style=3D"border: 1px solid #dadce0; padding: 20px 12px;background=
+-color: #fff; border-radius: 8px; margin-bottom: 12px;margin-bottom: 12px;"=
+><div style=3D"padding: 0 12px;"><h2 dir=3D"auto" style=3D"color: #202124;f=
+ont-family: Roboto,Helvetica,Arial,sans-serif;font-size: 16px; font-weight:=
+ 400; line-height: 24px;white-space: pre-wrap;margin: 0 0 16px;"><b>Present=
+ly Studying/enrolled in <span>MoU signed Institutes with IIT Mandi</span></=
+b><span style=3D"color: #d93025;" aria-label=3D"Required question"> *</span=
+></h2></div><div style=3D"padding: 0 12px;"><div style=3D"margin-top: 16px;=
+"><table style=3D"color: #202124;font-family: Roboto,Helvetica,Arial,sans-s=
+erif;font-size: 14px; font-weight: 400; line-height: 20px;margin-top: 8px; =
+table-layout: fixed;"><tr><td><div role=3D"radio" aria-checked=3D"true" ari=
+a-label=3D"Yes" style=3D"border: solid 2px #5f6368; height: 16px; width: 16=
+px; border-radius: 50%;"><div style=3D"background-color: #5f6368; border: s=
+olid 5px #5f6368; border-radius: 50%; margin: 3px; height: 0; width: 0;"></=
+div></div></td><td style=3D"min-width: 8px;"></td><td style=3D"word-break: =
+break-word;">Yes</td></tr></table></div><div style=3D"margin-top: 16px;"><t=
+able style=3D"color: #202124;font-family: Roboto,Helvetica,Arial,sans-serif=
+;font-size: 14px; font-weight: 400; line-height: 20px;color: #70757a;margin=
+-top: 8px; table-layout: fixed;"><tr><td><div role=3D"radio" aria-checked=
+=3D"false" aria-label=3D"No (Not eligible)" style=3D"border: solid 2px #9aa=
+0a6; height: 16px; width: 16px; border-radius: 50%;"></div></td><td style=
+=3D"min-width: 8px;"></td><td style=3D"word-break: break-word;">No (Not eli=
+gible)</td></tr></table></div></div></div><div style=3D"border: 1px solid #=
+dadce0; padding: 20px 12px;background-color: #fff; border-radius: 8px; marg=
+in-bottom: 12px;margin-bottom: 12px;"><div style=3D"padding: 0 12px;"><h2 d=
+ir=3D"auto" style=3D"color: #202124;font-family: Roboto,Helvetica,Arial,san=
+s-serif;font-size: 16px; font-weight: 400; line-height: 24px;white-space: p=
+re-wrap;margin: 0 0 16px;">
+<span><b>Select the Institute(s)=20
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<span><i>(MoU signed Institutes) </i></span></b>
+
+
+
+</span>
+
+<br><span style=3D"color: #d93025;" aria-label=3D"Required question"> *</sp=
+an></h2></div><div style=3D"padding: 0 12px;"><div style=3D"border: 1px sol=
+id #dadce0; border-radius: 4px; display: inline-block; margin-top: 8px; max=
+-width: 100%;"><table dir=3D"auto" style=3D"border-collapse: collapse; colo=
+r: #5f6368; max-width: 100%; margin: 12px 8px;"><tr><td><div style=3D"color=
+: #202124;font-family: Roboto,Helvetica,Arial,sans-serif;font-size: 14px; f=
+ont-weight: 400; line-height: 20px;color: #5f6368; word-break: break-word; =
+min-width: 100px; margin: 0 8px;">7 Malaviya National Institute of Technolo=
+gy, Jaipur</div></td><td style=3D"vertical-align: top;"><div style=3D"borde=
+r-left: 5px solid transparent; border-right: 5px solid transparent; border-=
+top: 5px solid #5f6368; margin: 8px; height: 0; width: 0;"></div></td></tr>=
+</table></div></div></div><div style=3D"border-bottom: 1px solid #dadce0; b=
+order-left: 1px solid #dadce0; border-right: 1px solid #dadce0; border-top:=
+ 8px solid rgb(103,58,183); padding: 0;background-color: #fff; border-radiu=
+s: 8px; margin-bottom: 12px;margin-bottom: 12px;"><div style=3D"padding: 0 =
+;"><h2 dir=3D"auto" style=3D"color: #fff;font-family: Roboto,Helvetica,Aria=
+l,sans-serif;font-size: 16px; font-weight: 400; line-height: 24px;backgroun=
+d-color: rgb(103,58,183); margin: 0; padding: 4px 24px 12px;"><b><span>No O=
+bjection Certificate (NOC) from Home=C2=A0</span>
+<span>institute</span></b>
+
+</h2><div dir=3D"auto" style=3D"color: #202124;font-family: Roboto,Helvetic=
+a,Arial,sans-serif;font-size: 12px; font-weight: 400; letter-spacing: .25px=
+; line-height: 16px;white-space: pre-wrap;margin: 24px 17px;">
+<div>The applicant are required obtained the No Objection Certificate (NOC)=
+ from current institute for an=20
+internship,=C2=A0 printed on the college=20
+letterhead and signed by the Head of Department (HoD) or Training &amp;=20
+Placement Officer (TPO), stating that the institution has no objection=20
+to you pursuing the internship.</div><div>
+<span>(NoC format available in link:=20
+<span><a href=3D"https://cloud.iitmandi.ac.in/f/fb3ff9074eb84dccabc7/">http=
+s://cloud.iitmandi.ac.in/f/fb3ff9074eb84dccabc7/</a>).</span></span></div><=
+/div></div><div style=3D"padding: 0 12px;"></div></div><div style=3D"border=
+: 1px solid #dadce0; padding: 20px 12px;background-color: #fff; border-radi=
+us: 8px; margin-bottom: 12px;margin-bottom: 12px;"><div style=3D"padding: 0=
+ 12px;"><h2 dir=3D"auto" style=3D"color: #202124;font-family: Roboto,Helvet=
+ica,Arial,sans-serif;font-size: 16px; font-weight: 400; line-height: 24px;w=
+hite-space: pre-wrap;margin: 0 0 16px;">Upload the NOC for Internship from =
+Home institute (.pdf file format)<span style=3D"color: #d93025;" aria-label=
+=3D"Required question"> *</span></h2></div><div style=3D"padding: 0 12px;">=
+Submitted files<div role=3D"list" aria-label=3D"Submitted files"><div dir=
+=3D"auto" style=3D"border: 1px solid #dadce0; border-radius: 4px; margin-to=
+p: 8px; padding: 8px;"><table role=3D"listitem"><tr><td><img src=3D"https:/=
+/ssl.gstatic.com/docs/doclist/images/mediatype/icon_3_pdf_x32.png" alt=3D"P=
+DF" style=3D"height: 16px; width: 16px;"></td><td style=3D"min-width: 4px;"=
+></td><td style=3D"color: #202124;font-family: Roboto,Helvetica,Arial,sans-=
+serif;font-size: 14px; font-weight: 400; line-height: 20px;; word-break: br=
+eak-word;">Mandi_noc - Jahnavi Pathi.pdf</td></tr></table></div></div></div=
+></div><div style=3D"border-bottom: 1px solid #dadce0; border-left: 1px sol=
+id #dadce0; border-right: 1px solid #dadce0; border-top: 8px solid rgb(103,=
+58,183); padding: 0;background-color: #fff; border-radius: 8px; margin-bott=
+om: 12px;margin-bottom: 12px;"><div style=3D"padding: 0 ;"><h2 dir=3D"auto"=
+ style=3D"color: #fff;font-family: Roboto,Helvetica,Arial,sans-serif;font-s=
+ize: 16px; font-weight: 400; line-height: 24px;background-color: rgb(103,58=
+,183); margin: 0; padding: 4px 24px 12px;border-bottom-left-radius: 8px; bo=
+rder-bottom-right-radius: 8px;">
+<span><b><span>Details of Current Degree programme:</span></b></span></h2><=
+/div><div style=3D"padding: 0 12px;"></div></div><div style=3D"border: 1px =
+solid #dadce0; padding: 20px 12px;background-color: #fff; border-radius: 8p=
+x; margin-bottom: 12px;margin-bottom: 12px;"><div style=3D"padding: 0 12px;=
+"><h2 dir=3D"auto" style=3D"color: #202124;font-family: Roboto,Helvetica,Ar=
+ial,sans-serif;font-size: 16px; font-weight: 400; line-height: 24px;white-s=
+pace: pre-wrap;margin: 0 0 16px;">
+<span>Name of Degree programme currently studying(Pre-final)</span><span st=
+yle=3D"color: #d93025;" aria-label=3D"Required question"> *</span></h2></di=
+v><div style=3D"padding: 0 12px;"><div style=3D"width: 100%;"><div dir=3D"a=
+uto" style=3D"white-space: pre-wrap;border-bottom: 1px dotted rgba(0,0,0,0.=
+38);margin: 12px 0 8px; min-height: 20px;display: inline-block; max-width: =
+100%; min-width: 50%;">Bachelor of Technology</div></div></div></div><div s=
+tyle=3D"border: 1px solid #dadce0; padding: 20px 12px;background-color: #ff=
+f; border-radius: 8px; margin-bottom: 12px;margin-bottom: 12px;"><div style=
+=3D"padding: 0 12px;"><h2 dir=3D"auto" style=3D"color: #202124;font-family:=
+ Roboto,Helvetica,Arial,sans-serif;font-size: 16px; font-weight: 400; line-=
+height: 24px;white-space: pre-wrap;margin: 0 0 16px;">Current semester(s)<s=
+pan style=3D"color: #d93025;" aria-label=3D"Required question"> *</span></h=
+2></div><div style=3D"padding: 0 12px;"><div style=3D"border: 1px solid #da=
+dce0; border-radius: 4px; display: inline-block; margin-top: 8px; max-width=
+: 100%;"><table dir=3D"auto" style=3D"border-collapse: collapse; color: #5f=
+6368; max-width: 100%; margin: 12px 8px;"><tr><td><div style=3D"color: #202=
+124;font-family: Roboto,Helvetica,Arial,sans-serif;font-size: 14px; font-we=
+ight: 400; line-height: 20px;color: #5f6368; word-break: break-word; min-wi=
+dth: 100px; margin: 0 8px;">6BE/B.Tech</div></td><td style=3D"vertical-alig=
+n: top;"><div style=3D"border-left: 5px solid transparent; border-right: 5p=
+x solid transparent; border-top: 5px solid #5f6368; margin: 8px; height: 0;=
+ width: 0;"></div></td></tr></table></div></div></div><div style=3D"border:=
+ 1px solid #dadce0; padding: 20px 12px;background-color: #fff; border-radiu=
+s: 8px; margin-bottom: 12px;margin-bottom: 12px;"><div style=3D"padding: 0 =
+12px;"><h2 dir=3D"auto" style=3D"color: #202124;font-family: Roboto,Helveti=
+ca,Arial,sans-serif;font-size: 16px; font-weight: 400; line-height: 24px;wh=
+ite-space: pre-wrap;margin: 0 0 16px;">Maximum Duration of Degree Programme=
+ <i>(in Years)</i><br><span style=3D"color: #d93025;" aria-label=3D"Require=
+d question"> *</span></h2></div><div style=3D"padding: 0 12px;"><div style=
+=3D"margin-top: 16px;"><table style=3D"color: #202124;font-family: Roboto,H=
+elvetica,Arial,sans-serif;font-size: 14px; font-weight: 400; line-height: 2=
+0px;color: #70757a;margin-top: 8px; table-layout: fixed;"><tr><td><div role=
+=3D"radio" aria-checked=3D"false" aria-label=3D"1" style=3D"border: solid 2=
+px #9aa0a6; height: 16px; width: 16px; border-radius: 50%;"></div></td><td =
+style=3D"min-width: 8px;"></td><td style=3D"word-break: break-word;">1</td>=
+</tr></table></div><div style=3D"margin-top: 16px;"><table style=3D"color: =
+#202124;font-family: Roboto,Helvetica,Arial,sans-serif;font-size: 14px; fon=
+t-weight: 400; line-height: 20px;color: #70757a;margin-top: 8px; table-layo=
+ut: fixed;"><tr><td><div role=3D"radio" aria-checked=3D"false" aria-label=
+=3D"2" style=3D"border: solid 2px #9aa0a6; height: 16px; width: 16px; borde=
+r-radius: 50%;"></div></td><td style=3D"min-width: 8px;"></td><td style=3D"=
+word-break: break-word;">2</td></tr></table></div><div style=3D"margin-top:=
+ 16px;"><table style=3D"color: #202124;font-family: Roboto,Helvetica,Arial,=
+sans-serif;font-size: 14px; font-weight: 400; line-height: 20px;color: #707=
+57a;margin-top: 8px; table-layout: fixed;"><tr><td><div role=3D"radio" aria=
+-checked=3D"false" aria-label=3D"3" style=3D"border: solid 2px #9aa0a6; hei=
+ght: 16px; width: 16px; border-radius: 50%;"></div></td><td style=3D"min-wi=
+dth: 8px;"></td><td style=3D"word-break: break-word;">3</td></tr></table></=
+div><div style=3D"margin-top: 16px;"><table style=3D"color: #202124;font-fa=
+mily: Roboto,Helvetica,Arial,sans-serif;font-size: 14px; font-weight: 400; =
+line-height: 20px;margin-top: 8px; table-layout: fixed;"><tr><td><div role=
+=3D"radio" aria-checked=3D"true" aria-label=3D"4" style=3D"border: solid 2p=
+x #5f6368; height: 16px; width: 16px; border-radius: 50%;"><div style=3D"ba=
+ckground-color: #5f6368; border: solid 5px #5f6368; border-radius: 50%; mar=
+gin: 3px; height: 0; width: 0;"></div></div></td><td style=3D"min-width: 8p=
+x;"></td><td style=3D"word-break: break-word;">4</td></tr></table></div><di=
+v style=3D"margin-top: 16px;"><table style=3D"color: #202124;font-family: R=
+oboto,Helvetica,Arial,sans-serif;font-size: 14px; font-weight: 400; line-he=
+ight: 20px;color: #70757a;margin-top: 8px; table-layout: fixed;"><tr><td><d=
+iv role=3D"radio" aria-checked=3D"false" aria-label=3D"5" style=3D"border: =
+solid 2px #9aa0a6; height: 16px; width: 16px; border-radius: 50%;"></div></=
+td><td style=3D"min-width: 8px;"></td><td style=3D"word-break: break-word;"=
+>5</td></tr></table></div></div></div><div style=3D"border: 1px solid #dadc=
+e0; padding: 20px 12px;background-color: #fff; border-radius: 8px; margin-b=
+ottom: 12px;margin-bottom: 12px;"><div style=3D"padding: 0 12px;"><h2 dir=
+=3D"auto" style=3D"color: #202124;font-family: Roboto,Helvetica,Arial,sans-=
+serif;font-size: 16px; font-weight: 400; line-height: 24px;white-space: pre=
+-wrap;margin: 0 0 16px;">CGPA upto previous semester(s):<span style=3D"colo=
+r: #d93025;" aria-label=3D"Required question"> *</span></h2></div><div styl=
+e=3D"padding: 0 12px;"><div style=3D"width: 100%;"><div dir=3D"auto" style=
+=3D"white-space: pre-wrap;border-bottom: 1px dotted rgba(0,0,0,0.38);margin=
+: 12px 0 8px; min-height: 20px;display: inline-block; max-width: 100%; min-=
+width: 50%;">7.79</div></div></div></div><div style=3D"border: 1px solid #d=
+adce0; padding: 20px 12px;background-color: #fff; border-radius: 8px; margi=
+n-bottom: 12px;margin-bottom: 12px;"><div style=3D"padding: 0 12px;"><h2 di=
+r=3D"auto" style=3D"color: #202124;font-family: Roboto,Helvetica,Arial,sans=
+-serif;font-size: 16px; font-weight: 400; line-height: 24px;white-space: pr=
+e-wrap;margin: 0;">Upload scanned copy of the authenticated Mark sheets of =
+previous semesters <br><span style=3D"color: #d93025;" aria-label=3D"Requir=
+ed question"> *</span></h2><div style=3D"color: #202124;font-family: Roboto=
+,Helvetica,Arial,sans-serif;font-size: 12px; font-weight: 400; letter-spaci=
+ng: .25px; line-height: 16px;white-space: pre-wrap;margin: 4px 0 20px;" dir=
+=3D"auto">
+<span>in single .pdf file format</span></div></div><div style=3D"padding: 0=
+ 12px;">Submitted files<div role=3D"list" aria-label=3D"Submitted files"><d=
+iv dir=3D"auto" style=3D"border: 1px solid #dadce0; border-radius: 4px; mar=
+gin-top: 8px; padding: 8px;"><table role=3D"listitem"><tr><td><img src=3D"h=
+ttps://ssl.gstatic.com/docs/doclist/images/mediatype/icon_3_pdf_x32.png" al=
+t=3D"PDF" style=3D"height: 16px; width: 16px;"></td><td style=3D"min-width:=
+ 4px;"></td><td style=3D"color: #202124;font-family: Roboto,Helvetica,Arial=
+,sans-serif;font-size: 14px; font-weight: 400; line-height: 20px;; word-bre=
+ak: break-word;">gradesheets - Jahnavi Pathi.pdf</td></tr></table></div></d=
+iv></div></div><div style=3D"border-bottom: 1px solid #dadce0; border-left:=
+ 1px solid #dadce0; border-right: 1px solid #dadce0; border-top: 8px solid =
+rgb(103,58,183); padding: 0;background-color: #fff; border-radius: 8px; mar=
+gin-bottom: 12px;margin-bottom: 12px;"><div style=3D"padding: 0 ;"><h2 dir=
+=3D"auto" style=3D"color: #fff;font-family: Roboto,Helvetica,Arial,sans-ser=
+if;font-size: 16px; font-weight: 400; line-height: 24px;background-color: r=
+gb(103,58,183); margin: 0; padding: 4px 24px 12px;border-bottom-left-radius=
+: 8px; border-bottom-right-radius: 8px;"><b>Personal Information </b><span>=
+</span></h2></div><div style=3D"padding: 0 12px;"></div></div><div style=3D=
+"border: 1px solid #dadce0; padding: 20px 12px;background-color: #fff; bord=
+er-radius: 8px; margin-bottom: 12px;margin-bottom: 12px;"><div style=3D"pad=
+ding: 0 12px;"><h2 dir=3D"auto" style=3D"color: #202124;font-family: Roboto=
+,Helvetica,Arial,sans-serif;font-size: 16px; font-weight: 400; line-height:=
+ 24px;white-space: pre-wrap;margin: 0 0 16px;">Name of Applicant<i>(as per =
+Matriculation certificate)</i><br><span style=3D"color: #d93025;" aria-labe=
+l=3D"Required question"> *</span></h2></div><div style=3D"padding: 0 12px;"=
+><div style=3D"width: 100%;"><div dir=3D"auto" style=3D"white-space: pre-wr=
+ap;border-bottom: 1px dotted rgba(0,0,0,0.38);margin: 12px 0 8px; min-heigh=
+t: 20px;display: inline-block; max-width: 100%; min-width: 50%;">Pathi Jahn=
+avi</div></div></div></div><div style=3D"border: 1px solid #dadce0; padding=
+: 20px 12px;background-color: #fff; border-radius: 8px; margin-bottom: 12px=
+;margin-bottom: 12px;"><div style=3D"padding: 0 12px;"><h2 dir=3D"auto" sty=
+le=3D"color: #202124;font-family: Roboto,Helvetica,Arial,sans-serif;font-si=
+ze: 16px; font-weight: 400; line-height: 24px;white-space: pre-wrap;margin:=
+ 0 0 16px;">Father's Name <br><span style=3D"color: #d93025;" aria-label=3D=
+"Required question"> *</span></h2></div><div style=3D"padding: 0 12px;"><di=
+v style=3D"width: 100%;"><div dir=3D"auto" style=3D"white-space: pre-wrap;b=
+order-bottom: 1px dotted rgba(0,0,0,0.38);margin: 12px 0 8px; min-height: 2=
+0px;display: inline-block; max-width: 100%; min-width: 50%;">P. Subba Rao</=
+div></div></div></div><div style=3D"border: 1px solid #dadce0; padding: 20p=
+x 12px;background-color: #fff; border-radius: 8px; margin-bottom: 12px;marg=
+in-bottom: 12px;"><div style=3D"padding: 0 12px;"><h2 dir=3D"auto" style=3D=
+"color: #202124;font-family: Roboto,Helvetica,Arial,sans-serif;font-size: 1=
+6px; font-weight: 400; line-height: 24px;white-space: pre-wrap;margin: 0 0 =
+16px;">Complete Postal address: <br><span style=3D"color: #d93025;" aria-la=
+bel=3D"Required question"> *</span></h2></div><div style=3D"padding: 0 12px=
+;"><div dir=3D"auto" style=3D"white-space: pre-wrap;border-bottom: 1px dott=
+ed rgba(0,0,0,0.38);margin: 12px 0 8px; min-height: 20px;width: 100%;">H.No=
+: 5-12-6, Mamatha Nagar, Stantan puram, Kurnool, Andhra Pradesh, India  518=
+006</div></div></div><div style=3D"border: 1px solid #dadce0; padding: 20px=
+ 12px;background-color: #fff; border-radius: 8px; margin-bottom: 12px;margi=
+n-bottom: 12px;"><div style=3D"padding: 0 12px;"><h2 dir=3D"auto" style=3D"=
+color: #202124;font-family: Roboto,Helvetica,Arial,sans-serif;font-size: 16=
+px; font-weight: 400; line-height: 24px;white-space: pre-wrap;margin: 0 0 1=
+6px;">State <br><span style=3D"color: #d93025;" aria-label=3D"Required ques=
+tion"> *</span></h2></div><div style=3D"padding: 0 12px;"><div style=3D"wid=
+th: 100%;"><div dir=3D"auto" style=3D"white-space: pre-wrap;border-bottom: =
+1px dotted rgba(0,0,0,0.38);margin: 12px 0 8px; min-height: 20px;display: i=
+nline-block; max-width: 100%; min-width: 50%;">Andhra Pradesh</div></div></=
+div></div><div style=3D"border: 1px solid #dadce0; padding: 20px 12px;backg=
+round-color: #fff; border-radius: 8px; margin-bottom: 12px;margin-bottom: 1=
+2px;"><div style=3D"padding: 0 12px;"><h2 dir=3D"auto" style=3D"color: #202=
+124;font-family: Roboto,Helvetica,Arial,sans-serif;font-size: 16px; font-we=
+ight: 400; line-height: 24px;white-space: pre-wrap;margin: 0 0 16px;">City<=
+br><span style=3D"color: #d93025;" aria-label=3D"Required question"> *</spa=
+n></h2></div><div style=3D"padding: 0 12px;"><div style=3D"width: 100%;"><d=
+iv dir=3D"auto" style=3D"white-space: pre-wrap;border-bottom: 1px dotted rg=
+ba(0,0,0,0.38);margin: 12px 0 8px; min-height: 20px;display: inline-block; =
+max-width: 100%; min-width: 50%;">Kurnool</div></div></div></div><div style=
+=3D"border: 1px solid #dadce0; padding: 20px 12px;background-color: #fff; b=
+order-radius: 8px; margin-bottom: 12px;margin-bottom: 12px;"><div style=3D"=
+padding: 0 12px;"><h2 dir=3D"auto" style=3D"color: #202124;font-family: Rob=
+oto,Helvetica,Arial,sans-serif;font-size: 16px; font-weight: 400; line-heig=
+ht: 24px;white-space: pre-wrap;margin: 0 0 16px;">Gender<span style=3D"colo=
+r: #d93025;" aria-label=3D"Required question"> *</span></h2></div><div styl=
+e=3D"padding: 0 12px;"><div style=3D"margin-top: 16px;"><table style=3D"col=
+or: #202124;font-family: Roboto,Helvetica,Arial,sans-serif;font-size: 14px;=
+ font-weight: 400; line-height: 20px;color: #70757a;margin-top: 8px; table-=
+layout: fixed;"><tr><td><div role=3D"radio" aria-checked=3D"false" aria-lab=
+el=3D"Male" style=3D"border: solid 2px #9aa0a6; height: 16px; width: 16px; =
+border-radius: 50%;"></div></td><td style=3D"min-width: 8px;"></td><td styl=
+e=3D"word-break: break-word;">Male</td></tr></table></div><div style=3D"mar=
+gin-top: 16px;"><table style=3D"color: #202124;font-family: Roboto,Helvetic=
+a,Arial,sans-serif;font-size: 14px; font-weight: 400; line-height: 20px;mar=
+gin-top: 8px; table-layout: fixed;"><tr><td><div role=3D"radio" aria-checke=
+d=3D"true" aria-label=3D"Female" style=3D"border: solid 2px #5f6368; height=
+: 16px; width: 16px; border-radius: 50%;"><div style=3D"background-color: #=
+5f6368; border: solid 5px #5f6368; border-radius: 50%; margin: 3px; height:=
+ 0; width: 0;"></div></div></td><td style=3D"min-width: 8px;"></td><td styl=
+e=3D"word-break: break-word;">Female</td></tr></table></div><div style=3D"m=
+argin-top: 16px;"><table style=3D"color: #202124;font-family: Roboto,Helvet=
+ica,Arial,sans-serif;font-size: 14px; font-weight: 400; line-height: 20px;c=
+olor: #70757a;margin-top: 8px; table-layout: fixed;"><tr><td><div role=3D"r=
+adio" aria-checked=3D"false" aria-label=3D"Other" style=3D"border: solid 2p=
+x #9aa0a6; height: 16px; width: 16px; border-radius: 50%;"></div></td><td s=
+tyle=3D"min-width: 8px;"></td><td style=3D"word-break: break-word;">Other</=
+td></tr></table></div></div></div><div style=3D"border: 1px solid #dadce0; =
+padding: 20px 12px;background-color: #fff; border-radius: 8px; margin-botto=
+m: 12px;margin-bottom: 12px;"><div style=3D"padding: 0 12px;"><h2 dir=3D"au=
+to" style=3D"color: #202124;font-family: Roboto,Helvetica,Arial,sans-serif;=
+font-size: 16px; font-weight: 400; line-height: 24px;white-space: pre-wrap;=
+margin: 0 0 16px;">Phone Number<br><span style=3D"color: #d93025;" aria-lab=
+el=3D"Required question"> *</span></h2></div><div style=3D"padding: 0 12px;=
+"><div style=3D"width: 100%;"><div dir=3D"auto" style=3D"white-space: pre-w=
+rap;border-bottom: 1px dotted rgba(0,0,0,0.38);margin: 12px 0 8px; min-heig=
+ht: 20px;display: inline-block; max-width: 100%; min-width: 50%;">955089194=
+4</div></div></div></div><div style=3D"border: 1px solid #dadce0; padding: =
+20px 12px;background-color: #fff; border-radius: 8px; margin-bottom: 12px;m=
+argin-bottom: 12px;"><div style=3D"padding: 0 12px;"><h2 dir=3D"auto" style=
+=3D"color: #202124;font-family: Roboto,Helvetica,Arial,sans-serif;font-size=
+: 16px; font-weight: 400; line-height: 24px;white-space: pre-wrap;margin: 0=
+ 0 16px;">Emergency Contact No.<br><span style=3D"color: #d93025;" aria-lab=
+el=3D"Required question"> *</span></h2></div><div style=3D"padding: 0 12px;=
+"><div style=3D"width: 100%;"><div dir=3D"auto" style=3D"white-space: pre-w=
+rap;border-bottom: 1px dotted rgba(0,0,0,0.38);margin: 12px 0 8px; min-heig=
+ht: 20px;display: inline-block; max-width: 100%; min-width: 50%;">955089194=
+4</div></div></div></div><div style=3D"border-bottom: 1px solid #dadce0; bo=
+rder-left: 1px solid #dadce0; border-right: 1px solid #dadce0; border-top: =
+8px solid rgb(103,58,183); padding: 0;background-color: #fff; border-radius=
+: 8px; margin-bottom: 12px;margin-bottom: 12px;"><div style=3D"padding: 0 ;=
+"><h2 dir=3D"auto" style=3D"color: #fff;font-family: Roboto,Helvetica,Arial=
+,sans-serif;font-size: 16px; font-weight: 400; line-height: 24px;background=
+-color: rgb(103,58,183); margin: 0; padding: 4px 24px 12px;"><b>School/ Cen=
+ter &amp; Area of Interest related information</b><span></span></h2><div di=
+r=3D"auto" style=3D"color: #202124;font-family: Roboto,Helvetica,Arial,sans=
+-serif;font-size: 12px; font-weight: 400; letter-spacing: .25px; line-heigh=
+t: 16px;white-space: pre-wrap;margin: 24px 17px;"><div>Note:</div><div>For=
+=C2=A0
+<span>School/ Centre</span>/ Areas of research / Faculty (Guide)related inf=
+ormation please visit the IIT Mandi Website: <a href=3D"https://www.iitmand=
+i.ac.in/"><i>https://www.iitmandi.ac.in/</i></a></div></div></div><div styl=
+e=3D"padding: 0 12px;"></div></div><div style=3D"border: 1px solid #dadce0;=
+ padding: 20px 12px;background-color: #fff; border-radius: 8px; margin-bott=
+om: 12px;margin-bottom: 12px;"><div style=3D"padding: 0 12px;"><h2 dir=3D"a=
+uto" style=3D"color: #202124;font-family: Roboto,Helvetica,Arial,sans-serif=
+;font-size: 16px; font-weight: 400; line-height: 24px;white-space: pre-wrap=
+;margin: 0 0 16px;">Select the School/ Center to applying at IIT Mandi<br><=
+span style=3D"color: #d93025;" aria-label=3D"Required question"> *</span></=
+h2></div><div style=3D"padding: 0 12px;"><div style=3D"border: 1px solid #d=
+adce0; border-radius: 4px; display: inline-block; margin-top: 8px; max-widt=
+h: 100%;"><table dir=3D"auto" style=3D"border-collapse: collapse; color: #5=
+f6368; max-width: 100%; margin: 12px 8px;"><tr><td><div style=3D"color: #20=
+2124;font-family: Roboto,Helvetica,Arial,sans-serif;font-size: 14px; font-w=
+eight: 400; line-height: 20px;color: #5f6368; word-break: break-word; min-w=
+idth: 100px; margin: 0 8px;">School of Computing and Electrical Engineering=
+ (SCEE)</div></td><td style=3D"vertical-align: top;"><div style=3D"border-l=
+eft: 5px solid transparent; border-right: 5px solid transparent; border-top=
+: 5px solid #5f6368; margin: 8px; height: 0; width: 0;"></div></td></tr></t=
+able></div></div></div><div style=3D"border: 1px solid #dadce0; padding: 20=
+px 12px;background-color: #fff; border-radius: 8px; margin-bottom: 12px;mar=
+gin-bottom: 12px;"><div style=3D"padding: 0 12px;"><h2 dir=3D"auto" style=
+=3D"color: #202124;font-family: Roboto,Helvetica,Arial,sans-serif;font-size=
+: 16px; font-weight: 400; line-height: 24px;white-space: pre-wrap;margin: 0=
+ 0 16px;"><b>Area of Interest </b><br><span style=3D"color: #d93025;" aria-=
+label=3D"Required question"> *</span></h2></div><div style=3D"padding: 0 12=
+px;"><div style=3D"width: 100%;"><div dir=3D"auto" style=3D"white-space: pr=
+e-wrap;border-bottom: 1px dotted rgba(0,0,0,0.38);margin: 12px 0 8px; min-h=
+eight: 20px;display: inline-block; max-width: 100%; min-width: 50%;">AI, ML=
+, Blockchain, CNS</div></div></div></div><div style=3D"border: 1px solid #d=
+adce0; padding: 20px 12px;background-color: #fff; border-radius: 8px; margi=
+n-bottom: 12px;margin-bottom: 12px;"><div style=3D"padding: 0 12px;"><h2 di=
+r=3D"auto" style=3D"color: #202124;font-family: Roboto,Helvetica,Arial,sans=
+-serif;font-size: 16px; font-weight: 400; line-height: 24px;white-space: pr=
+e-wrap;margin: 0 0 16px;"><b>Upload the scanned copy of CV/ Resume (.pdf fo=
+rmat)</b><span style=3D"color: #d93025;" aria-label=3D"Required question"> =
+*</span></h2></div><div style=3D"padding: 0 12px;">Submitted files<div role=
+=3D"list" aria-label=3D"Submitted files"><div dir=3D"auto" style=3D"border:=
+ 1px solid #dadce0; border-radius: 4px; margin-top: 8px; padding: 8px;"><ta=
+ble role=3D"listitem"><tr><td><img src=3D"https://ssl.gstatic.com/docs/docl=
+ist/images/mediatype/icon_3_pdf_x32.png" alt=3D"PDF" style=3D"height: 16px;=
+ width: 16px;"></td><td style=3D"min-width: 4px;"></td><td style=3D"color: =
+#202124;font-family: Roboto,Helvetica,Arial,sans-serif;font-size: 14px; fon=
+t-weight: 400; line-height: 20px;; word-break: break-word;">PATHI_JAHNAVI_2=
+023UCP1595 - Jahnavi Pathi.pdf</td></tr></table></div></div></div></div><di=
+v style=3D"border: 1px solid #dadce0; padding: 20px 12px;background-color: =
+#fff; border-radius: 8px; margin-bottom: 12px;margin-bottom: 12px;"><div st=
+yle=3D"padding: 0 12px;"><h2 dir=3D"auto" style=3D"color: #202124;font-fami=
+ly: Roboto,Helvetica,Arial,sans-serif;font-size: 16px; font-weight: 400; li=
+ne-height: 24px;white-space: pre-wrap;margin: 0 0 16px;"><b>Remarks(if any)=
+<br></b></h2></div><div style=3D"padding: 0 12px;"><div dir=3D"auto" style=
+=3D"white-space: pre-wrap;border-bottom: 1px dotted rgba(0,0,0,0.38);margin=
+: 12px 0 8px; min-height: 20px;width: 100%;">Nothing </div></div></div><div=
+ style=3D"border-bottom: 1px solid #dadce0; border-left: 1px solid #dadce0;=
+ border-right: 1px solid #dadce0; border-top: 8px solid rgb(103,58,183); pa=
+dding: 0;background-color: #fff; border-radius: 8px; margin-bottom: 12px;ma=
+rgin-bottom: 12px;"><div style=3D"padding: 0 ;"><h2 dir=3D"auto" style=3D"c=
+olor: #fff;font-family: Roboto,Helvetica,Arial,sans-serif;font-size: 16px; =
+font-weight: 400; line-height: 24px;background-color: rgb(103,58,183); marg=
+in: 0; padding: 4px 24px 12px;border-bottom-left-radius: 8px; border-bottom=
+-right-radius: 8px;"><b>Academic Details</b><span></span></h2></div><div st=
+yle=3D"padding: 0 12px;"></div></div><div style=3D"border: 1px solid #dadce=
+0; padding: 20px 12px;background-color: #fff; border-radius: 8px; margin-bo=
+ttom: 12px;margin-bottom: 12px;"><div style=3D"padding: 0 12px;"><h2 dir=3D=
+"auto" style=3D"color: #202124;font-family: Roboto,Helvetica,Arial,sans-ser=
+if;font-size: 16px; font-weight: 400; line-height: 24px;white-space: pre-wr=
+ap;margin: 0 0 16px;"><b>Class </b><br><span style=3D"color: #d93025;" aria=
+-label=3D"Required question"> *</span></h2></div><div style=3D"padding: 0 1=
+2px;"><div style=3D"border: 1px solid #dadce0; border-radius: 4px; display:=
+ inline-block; margin-top: 8px; max-width: 100%;"><table dir=3D"auto" style=
+=3D"border-collapse: collapse; color: #5f6368; max-width: 100%; margin: 12p=
+x 8px;"><tr><td><div style=3D"color: #202124;font-family: Roboto,Helvetica,=
+Arial,sans-serif;font-size: 14px; font-weight: 400; line-height: 20px;color=
+: #5f6368; word-break: break-word; min-width: 100px; margin: 0 8px;">10 (Ma=
+triculation)</div></td><td style=3D"vertical-align: top;"><div style=3D"bor=
+der-left: 5px solid transparent; border-right: 5px solid transparent; borde=
+r-top: 5px solid #5f6368; margin: 8px; height: 0; width: 0;"></div></td></t=
+r></table></div></div></div><div style=3D"border: 1px solid #dadce0; paddin=
+g: 20px 12px;background-color: #fff; border-radius: 8px; margin-bottom: 12p=
+x;margin-bottom: 12px;"><div style=3D"padding: 0 12px;"><h2 dir=3D"auto" st=
+yle=3D"color: #202124;font-family: Roboto,Helvetica,Arial,sans-serif;font-s=
+ize: 16px; font-weight: 400; line-height: 24px;white-space: pre-wrap;margin=
+: 0 0 16px;">Subjects<br><span style=3D"color: #d93025;" aria-label=3D"Requ=
+ired question"> *</span></h2></div><div style=3D"padding: 0 12px;"><div dir=
+=3D"auto" style=3D"white-space: pre-wrap;border-bottom: 1px dotted rgba(0,0=
+,0,0.38);margin: 12px 0 8px; min-height: 20px;width: 100%;">Mathematics, Sc=
+ience, Social Science, English, Telugu</div></div></div><div style=3D"borde=
+r: 1px solid #dadce0; padding: 20px 12px;background-color: #fff; border-rad=
+ius: 8px; margin-bottom: 12px;margin-bottom: 12px;"><div style=3D"padding: =
+0 12px;"><h2 dir=3D"auto" style=3D"color: #202124;font-family: Roboto,Helve=
+tica,Arial,sans-serif;font-size: 16px; font-weight: 400; line-height: 24px;=
+white-space: pre-wrap;margin: 0 0 16px;">Board<br><span style=3D"color: #d9=
+3025;" aria-label=3D"Required question"> *</span></h2></div><div style=3D"p=
+adding: 0 12px;"><div style=3D"width: 100%;"><div dir=3D"auto" style=3D"whi=
+te-space: pre-wrap;border-bottom: 1px dotted rgba(0,0,0,0.38);margin: 12px =
+0 8px; min-height: 20px;display: inline-block; max-width: 100%; min-width: =
+50%;">CBSE</div></div></div></div><div style=3D"border: 1px solid #dadce0; =
+padding: 20px 12px;background-color: #fff; border-radius: 8px; margin-botto=
+m: 12px;margin-bottom: 12px;"><div style=3D"padding: 0 12px;"><h2 dir=3D"au=
+to" style=3D"color: #202124;font-family: Roboto,Helvetica,Arial,sans-serif;=
+font-size: 16px; font-weight: 400; line-height: 24px;white-space: pre-wrap;=
+margin: 0 0 16px;">School/institute etc. Name<br><span style=3D"color: #d93=
+025;" aria-label=3D"Required question"> *</span></h2></div><div style=3D"pa=
+dding: 0 12px;"><div style=3D"width: 100%;"><div dir=3D"auto" style=3D"whit=
+e-space: pre-wrap;border-bottom: 1px dotted rgba(0,0,0,0.38);margin: 12px 0=
+ 8px; min-height: 20px;display: inline-block; max-width: 100%; min-width: 5=
+0%;">St. Joseph&#39;s English School</div></div></div></div><div style=3D"b=
+order: 1px solid #dadce0; padding: 20px 12px;background-color: #fff; border=
+-radius: 8px; margin-bottom: 12px;margin-bottom: 12px;"><div style=3D"paddi=
+ng: 0 12px;"><h2 dir=3D"auto" style=3D"color: #202124;font-family: Roboto,H=
+elvetica,Arial,sans-serif;font-size: 16px; font-weight: 400; line-height: 2=
+4px;white-space: pre-wrap;margin: 0 0 16px;">Year of Passing<br><span style=
+=3D"color: #d93025;" aria-label=3D"Required question"> *</span></h2></div><=
+div style=3D"padding: 0 12px;"><div style=3D"width: 100%;"><div dir=3D"auto=
+" style=3D"white-space: pre-wrap;border-bottom: 1px dotted rgba(0,0,0,0.38)=
+;margin: 12px 0 8px; min-height: 20px;display: inline-block; max-width: 100=
+%; min-width: 50%;">2021</div></div></div></div><div style=3D"border: 1px s=
+olid #dadce0; padding: 20px 12px;background-color: #fff; border-radius: 8px=
+; margin-bottom: 12px;margin-bottom: 12px;"><div style=3D"padding: 0 12px;"=
+><h2 dir=3D"auto" style=3D"color: #202124;font-family: Roboto,Helvetica,Ari=
+al,sans-serif;font-size: 16px; font-weight: 400; line-height: 24px;white-sp=
+ace: pre-wrap;margin: 0 0 16px;">Grade/ CGPA/ %<br><span style=3D"color: #d=
+93025;" aria-label=3D"Required question"> *</span></h2></div><div style=3D"=
+padding: 0 12px;"><div style=3D"width: 100%;"><div dir=3D"auto" style=3D"wh=
+ite-space: pre-wrap;border-bottom: 1px dotted rgba(0,0,0,0.38);margin: 12px=
+ 0 8px; min-height: 20px;display: inline-block; max-width: 100%; min-width:=
+ 50%;">96.2%</div></div></div></div><div style=3D"border: 1px solid #dadce0=
+; padding: 20px 12px;background-color: #fff; border-radius: 8px; margin-bot=
+tom: 12px;margin-bottom: 12px;"><div style=3D"padding: 0 12px;"><h2 dir=3D"=
+auto" style=3D"color: #202124;font-family: Roboto,Helvetica,Arial,sans-seri=
+f;font-size: 16px; font-weight: 400; line-height: 24px;white-space: pre-wra=
+p;margin: 0 0 16px;">Upload the scanned copy of 10th Mark sheet (only .pdf =
+file format)<br><span style=3D"color: #d93025;" aria-label=3D"Required ques=
+tion"> *</span></h2></div><div style=3D"padding: 0 12px;">Submitted files<d=
+iv role=3D"list" aria-label=3D"Submitted files"><div dir=3D"auto" style=3D"=
+border: 1px solid #dadce0; border-radius: 4px; margin-top: 8px; padding: 8p=
+x;"><table role=3D"listitem"><tr><td><img src=3D"https://ssl.gstatic.com/do=
+cs/doclist/images/mediatype/icon_3_pdf_x32.png" alt=3D"PDF" style=3D"height=
+: 16px; width: 16px;"></td><td style=3D"min-width: 4px;"></td><td style=3D"=
+color: #202124;font-family: Roboto,Helvetica,Arial,sans-serif;font-size: 14=
+px; font-weight: 400; line-height: 20px;; word-break: break-word;">ssc - Ja=
+hnavi Pathi.pdf</td></tr></table></div></div></div></div><div style=3D"bord=
+er-bottom: 1px solid #dadce0; border-left: 1px solid #dadce0; border-right:=
+ 1px solid #dadce0; border-top: 8px solid rgb(103,58,183); padding: 0;backg=
+round-color: #fff; border-radius: 8px; margin-bottom: 12px;margin-bottom: 1=
+2px;"><div style=3D"padding: 0 ;"><h2 dir=3D"auto" style=3D"color: #fff;fon=
+t-family: Roboto,Helvetica,Arial,sans-serif;font-size: 16px; font-weight: 4=
+00; line-height: 24px;background-color: rgb(103,58,183); margin: 0; padding=
+: 4px 24px 12px;border-bottom-left-radius: 8px; border-bottom-right-radius:=
+ 8px;"><b>+2 Class
+/ Diploma details </b><span></span></h2></div><div style=3D"padding: 0 12px=
+;"></div></div><div style=3D"border: 1px solid #dadce0; padding: 20px 12px;=
+background-color: #fff; border-radius: 8px; margin-bottom: 12px;margin-bott=
+om: 12px;"><div style=3D"padding: 0 12px;"><h2 dir=3D"auto" style=3D"color:=
+ #202124;font-family: Roboto,Helvetica,Arial,sans-serif;font-size: 16px; fo=
+nt-weight: 400; line-height: 24px;white-space: pre-wrap;margin: 0 0 16px;">=
+Name School/institute etc. Name<br><span style=3D"color: #d93025;" aria-lab=
+el=3D"Required question"> *</span></h2></div><div style=3D"padding: 0 12px;=
+"><div style=3D"width: 100%;"><div dir=3D"auto" style=3D"white-space: pre-w=
+rap;border-bottom: 1px dotted rgba(0,0,0,0.38);margin: 12px 0 8px; min-heig=
+ht: 20px;display: inline-block; max-width: 100%; min-width: 50%;">Srujana J=
+unior College</div></div></div></div><div style=3D"border: 1px solid #dadce=
+0; padding: 20px 12px;background-color: #fff; border-radius: 8px; margin-bo=
+ttom: 12px;margin-bottom: 12px;"><div style=3D"padding: 0 12px;"><h2 dir=3D=
+"auto" style=3D"color: #202124;font-family: Roboto,Helvetica,Arial,sans-ser=
+if;font-size: 16px; font-weight: 400; line-height: 24px;white-space: pre-wr=
+ap;margin: 0 0 16px;">Name of Board <br><span style=3D"color: #d93025;" ari=
+a-label=3D"Required question"> *</span></h2></div><div style=3D"padding: 0 =
+12px;"><div style=3D"width: 100%;"><div dir=3D"auto" style=3D"white-space: =
+pre-wrap;border-bottom: 1px dotted rgba(0,0,0,0.38);margin: 12px 0 8px; min=
+-height: 20px;display: inline-block; max-width: 100%; min-width: 50%;">Andh=
+ra Pradesh Board of Intermediate Education</div></div></div></div><div styl=
+e=3D"border: 1px solid #dadce0; padding: 20px 12px;background-color: #fff; =
+border-radius: 8px; margin-bottom: 12px;margin-bottom: 12px;"><div style=3D=
+"padding: 0 12px;"><h2 dir=3D"auto" style=3D"color: #202124;font-family: Ro=
+boto,Helvetica,Arial,sans-serif;font-size: 16px; font-weight: 400; line-hei=
+ght: 24px;white-space: pre-wrap;margin: 0 0 16px;">Year of Passing<br><span=
+ style=3D"color: #d93025;" aria-label=3D"Required question"> *</span></h2><=
+/div><div style=3D"padding: 0 12px;"><div style=3D"width: 100%;"><div dir=
+=3D"auto" style=3D"white-space: pre-wrap;border-bottom: 1px dotted rgba(0,0=
+,0,0.38);margin: 12px 0 8px; min-height: 20px;display: inline-block; max-wi=
+dth: 100%; min-width: 50%;">2023</div></div></div></div><div style=3D"borde=
+r: 1px solid #dadce0; padding: 20px 12px;background-color: #fff; border-rad=
+ius: 8px; margin-bottom: 12px;margin-bottom: 12px;"><div style=3D"padding: =
+0 12px;"><h2 dir=3D"auto" style=3D"color: #202124;font-family: Roboto,Helve=
+tica,Arial,sans-serif;font-size: 16px; font-weight: 400; line-height: 24px;=
+white-space: pre-wrap;margin: 0 0 16px;">Grade/ CGPA/ %<br><span style=3D"c=
+olor: #d93025;" aria-label=3D"Required question"> *</span></h2></div><div s=
+tyle=3D"padding: 0 12px;"><div style=3D"width: 100%;"><div dir=3D"auto" sty=
+le=3D"white-space: pre-wrap;border-bottom: 1px dotted rgba(0,0,0,0.38);marg=
+in: 12px 0 8px; min-height: 20px;display: inline-block; max-width: 100%; mi=
+n-width: 50%;">98.8</div></div></div></div><div style=3D"border: 1px solid =
+#dadce0; padding: 20px 12px;background-color: #fff; border-radius: 8px; mar=
+gin-bottom: 12px;margin-bottom: 12px;"><div style=3D"padding: 0 12px;"><h2 =
+dir=3D"auto" style=3D"color: #202124;font-family: Roboto,Helvetica,Arial,sa=
+ns-serif;font-size: 16px; font-weight: 400; line-height: 24px;white-space: =
+pre-wrap;margin: 0 0 16px;">Upload the scanned copy of 12th/=C2=A0Diploma
+
+
+
+ Mark sheet/ Certificate (only .pdf file format)<br><span style=3D"color: #=
+d93025;" aria-label=3D"Required question"> *</span></h2></div><div style=3D=
+"padding: 0 12px;">Submitted files<div role=3D"list" aria-label=3D"Submitte=
+d files"><div dir=3D"auto" style=3D"border: 1px solid #dadce0; border-radiu=
+s: 4px; margin-top: 8px; padding: 8px;"><table role=3D"listitem"><tr><td><i=
+mg src=3D"https://ssl.gstatic.com/docs/doclist/images/mediatype/icon_3_pdf_=
+x32.png" alt=3D"PDF" style=3D"height: 16px; width: 16px;"></td><td style=3D=
+"min-width: 4px;"></td><td style=3D"color: #202124;font-family: Roboto,Helv=
+etica,Arial,sans-serif;font-size: 14px; font-weight: 400; line-height: 20px=
+;; word-break: break-word;">inter - Jahnavi Pathi.pdf</td></tr></table></di=
+v></div></div></div><div style=3D"border-bottom: 1px solid #dadce0; border-=
+left: 1px solid #dadce0; border-right: 1px solid #dadce0; border-top: 8px s=
+olid rgb(103,58,183); padding: 0;background-color: #fff; border-radius: 8px=
+; margin-bottom: 12px;margin-bottom: 12px;"><div style=3D"padding: 0 ;"><h2=
+ dir=3D"auto" style=3D"color: #fff;font-family: Roboto,Helvetica,Arial,sans=
+-serif;font-size: 16px; font-weight: 400; line-height: 24px;background-colo=
+r: rgb(103,58,183); margin: 0; padding: 4px 24px 12px;border-bottom-left-ra=
+dius: 8px; border-bottom-right-radius: 8px;"><b>UG Degree Details </b><span=
+></span><span></span></h2></div><div style=3D"padding: 0 12px;"></div></div=
+><div style=3D"border: 1px solid #dadce0; padding: 20px 12px;background-col=
+or: #fff; border-radius: 8px; margin-bottom: 12px;margin-bottom: 12px;"><di=
+v style=3D"padding: 0 12px;"><h2 dir=3D"auto" style=3D"color: #202124;font-=
+family: Roboto,Helvetica,Arial,sans-serif;font-size: 16px; font-weight: 400=
+; line-height: 24px;white-space: pre-wrap;margin: 0 0 16px;">Name of Degree=
+ Programme<br><span style=3D"color: #d93025;" aria-label=3D"Required questi=
+on"> *</span></h2></div><div style=3D"padding: 0 12px;"><div style=3D"width=
+: 100%;"><div dir=3D"auto" style=3D"white-space: pre-wrap;border-bottom: 1p=
+x dotted rgba(0,0,0,0.38);margin: 12px 0 8px; min-height: 20px;display: inl=
+ine-block; max-width: 100%; min-width: 50%;">B.Tech</div></div></div></div>=
+<div style=3D"border: 1px solid #dadce0; padding: 20px 12px;background-colo=
+r: #fff; border-radius: 8px; margin-bottom: 12px;margin-bottom: 12px;"><div=
+ style=3D"padding: 0 12px;"><h2 dir=3D"auto" style=3D"color: #202124;font-f=
+amily: Roboto,Helvetica,Arial,sans-serif;font-size: 16px; font-weight: 400;=
+ line-height: 24px;white-space: pre-wrap;margin: 0 0 16px;">Name of College=
+/ institute Name:<br><span style=3D"color: #d93025;" aria-label=3D"Required=
+ question"> *</span></h2></div><div style=3D"padding: 0 12px;"><div style=
+=3D"width: 100%;"><div dir=3D"auto" style=3D"white-space: pre-wrap;border-b=
+ottom: 1px dotted rgba(0,0,0,0.38);margin: 12px 0 8px; min-height: 20px;dis=
+play: inline-block; max-width: 100%; min-width: 50%;">Malaviya National Ins=
+titute of Technology Jaipur</div></div></div></div><div style=3D"border: 1p=
+x solid #dadce0; padding: 20px 12px;background-color: #fff; border-radius: =
+8px; margin-bottom: 12px;margin-bottom: 12px;"><div style=3D"padding: 0 12p=
+x;"><h2 dir=3D"auto" style=3D"color: #202124;font-family: Roboto,Helvetica,=
+Arial,sans-serif;font-size: 16px; font-weight: 400; line-height: 24px;white=
+-space: pre-wrap;margin: 0 0 16px;">Name of University <br><span style=3D"c=
+olor: #d93025;" aria-label=3D"Required question"> *</span></h2></div><div s=
+tyle=3D"padding: 0 12px;"><div style=3D"width: 100%;"><div dir=3D"auto" sty=
+le=3D"white-space: pre-wrap;border-bottom: 1px dotted rgba(0,0,0,0.38);marg=
+in: 12px 0 8px; min-height: 20px;display: inline-block; max-width: 100%; mi=
+n-width: 50%;">Malaviya National Institute of Tehnology</div></div></div></=
+div><div style=3D"border: 1px solid #dadce0; padding: 20px 12px;background-=
+color: #fff; border-radius: 8px; margin-bottom: 12px;margin-bottom: 12px;">=
+<div style=3D"padding: 0 12px;"><h2 dir=3D"auto" style=3D"color: #202124;fo=
+nt-family: Roboto,Helvetica,Arial,sans-serif;font-size: 16px; font-weight: =
+400; line-height: 24px;white-space: pre-wrap;margin: 0 0 16px;">Current Sem=
+ester registered <br></h2></div><div style=3D"padding: 0 12px;"><div style=
+=3D"width: 100%;"><div dir=3D"auto" style=3D"white-space: pre-wrap;border-b=
+ottom: 1px dotted rgba(0,0,0,0.38);margin: 12px 0 8px; min-height: 20px;dis=
+play: inline-block; max-width: 100%; min-width: 50%;">6</div></div></div></=
+div><div style=3D"border: 1px solid #dadce0; padding: 20px 12px;background-=
+color: #fff; border-radius: 8px; margin-bottom: 12px;margin-bottom: 12px;">=
+<div style=3D"padding: 0 12px;"><h2 dir=3D"auto" style=3D"color: #202124;fo=
+nt-family: Roboto,Helvetica,Arial,sans-serif;font-size: 16px; font-weight: =
+400; line-height: 24px;white-space: pre-wrap;margin: 0 0 16px;">CGPA upto p=
+revious semester</h2></div><div style=3D"padding: 0 12px;"><div style=3D"wi=
+dth: 100%;"><div dir=3D"auto" style=3D"white-space: pre-wrap;border-bottom:=
+ 1px dotted rgba(0,0,0,0.38);margin: 12px 0 8px; min-height: 20px;display: =
+inline-block; max-width: 100%; min-width: 50%;">7.79</div></div></div></div=
+><div style=3D"border: 1px solid #dadce0; padding: 20px 12px;background-col=
+or: #fff; border-radius: 8px; margin-bottom: 12px;margin-bottom: 12px;"><di=
+v style=3D"padding: 0 12px;"><h2 dir=3D"auto" style=3D"color: #202124;font-=
+family: Roboto,Helvetica,Arial,sans-serif;font-size: 16px; font-weight: 400=
+; line-height: 24px;white-space: pre-wrap;margin: 0 0 16px;">If completed=
+=C2=A0 UG Degree mentioned final CGPA/ %<br></h2></div><div style=3D"paddin=
+g: 0 12px;"><div style=3D"width: 100%;"><div dir=3D"auto" style=3D"white-sp=
+ace: pre-wrap;border-bottom: 1px dotted rgba(0,0,0,0.38);margin: 12px 0 8px=
+; min-height: 20px;display: inline-block; max-width: 100%; min-width: 50%;"=
+>NA</div></div></div></div><div style=3D"border: 1px solid #dadce0; padding=
+: 20px 12px;background-color: #fff; border-radius: 8px; margin-bottom: 12px=
+;margin-bottom: 12px;"><div style=3D"padding: 0 12px;"><h2 dir=3D"auto" sty=
+le=3D"color: #202124;font-family: Roboto,Helvetica,Arial,sans-serif;font-si=
+ze: 16px; font-weight: 400; line-height: 24px;white-space: pre-wrap;margin:=
+ 0 0 16px;">Upload the scanned copy of UG Degree certificate with semester =
+wise Mark sheet(s) (only .pdf file format)if graduated other wise upload Co=
+nsolidated marksheet till last semester<span style=3D"color: #d93025;" aria=
+-label=3D"Required question"> *</span></h2></div><div style=3D"padding: 0 1=
+2px;">Submitted files<div role=3D"list" aria-label=3D"Submitted files"><div=
+ dir=3D"auto" style=3D"border: 1px solid #dadce0; border-radius: 4px; margi=
+n-top: 8px; padding: 8px;"><table role=3D"listitem"><tr><td><img src=3D"htt=
+ps://ssl.gstatic.com/docs/doclist/images/mediatype/icon_3_pdf_x32.png" alt=
+=3D"PDF" style=3D"height: 16px; width: 16px;"></td><td style=3D"min-width: =
+4px;"></td><td style=3D"color: #202124;font-family: Roboto,Helvetica,Arial,=
+sans-serif;font-size: 14px; font-weight: 400; line-height: 20px;; word-brea=
+k: break-word;">gradesheets_compressed - Jahnavi Pathi.pdf</td></tr></table=
+></div></div></div></div><div style=3D"border-bottom: 1px solid #dadce0; bo=
+rder-left: 1px solid #dadce0; border-right: 1px solid #dadce0; border-top: =
+8px solid rgb(103,58,183); padding: 0;background-color: #fff; border-radius=
+: 8px; margin-bottom: 12px;margin-bottom: 12px;"><div style=3D"padding: 0 ;=
+"><h2 dir=3D"auto" style=3D"color: #fff;font-family: Roboto,Helvetica,Arial=
+,sans-serif;font-size: 16px; font-weight: 400; line-height: 24px;background=
+-color: rgb(103,58,183); margin: 0; padding: 4px 24px 12px;border-bottom-le=
+ft-radius: 8px; border-bottom-right-radius: 8px;"><b>PG Degree Details </b>=
+<span></span><span></span></h2></div><div style=3D"padding: 0 12px;"></div>=
+</div><div style=3D"border: 1px solid #dadce0; padding: 20px 12px;backgroun=
+d-color: #fff; border-radius: 8px; margin-bottom: 12px;margin-bottom: 12px;=
+"><div style=3D"padding: 0 12px;"><h2 dir=3D"auto" style=3D"color: #202124;=
+font-family: Roboto,Helvetica,Arial,sans-serif;font-size: 16px; font-weight=
+: 400; line-height: 24px;white-space: pre-wrap;margin: 0 0 16px;">Name of D=
+egree Programme<br></h2></div><div style=3D"padding: 0 12px;"><div style=3D=
+"width: 100%;"><div dir=3D"auto" style=3D"white-space: pre-wrap;border-bott=
+om: 1px dotted rgba(0,0,0,0.38);margin: 12px 0 8px; min-height: 20px;displa=
+y: inline-block; max-width: 100%; min-width: 50%;"></div></div></div></div>=
+<div style=3D"border: 1px solid #dadce0; padding: 20px 12px;background-colo=
+r: #fff; border-radius: 8px; margin-bottom: 12px;margin-bottom: 12px;"><div=
+ style=3D"padding: 0 12px;"><h2 dir=3D"auto" style=3D"color: #202124;font-f=
+amily: Roboto,Helvetica,Arial,sans-serif;font-size: 16px; font-weight: 400;=
+ line-height: 24px;white-space: pre-wrap;margin: 0 0 16px;">Name School/ Co=
+llege/ institute etc. <br></h2></div><div style=3D"padding: 0 12px;"><div s=
+tyle=3D"width: 100%;"><div dir=3D"auto" style=3D"white-space: pre-wrap;bord=
+er-bottom: 1px dotted rgba(0,0,0,0.38);margin: 12px 0 8px; min-height: 20px=
+;display: inline-block; max-width: 100%; min-width: 50%;"></div></div></div=
+></div><div style=3D"border: 1px solid #dadce0; padding: 20px 12px;backgrou=
+nd-color: #fff; border-radius: 8px; margin-bottom: 12px;margin-bottom: 12px=
+;"><div style=3D"padding: 0 12px;"><h2 dir=3D"auto" style=3D"color: #202124=
+;font-family: Roboto,Helvetica,Arial,sans-serif;font-size: 16px; font-weigh=
+t: 400; line-height: 24px;white-space: pre-wrap;margin: 0 0 16px;">
+<span>Name of University<br></span>
+
+</h2></div><div style=3D"padding: 0 12px;"><div style=3D"width: 100%;"><div=
+ dir=3D"auto" style=3D"white-space: pre-wrap;border-bottom: 1px dotted rgba=
+(0,0,0,0.38);margin: 12px 0 8px; min-height: 20px;display: inline-block; ma=
+x-width: 100%; min-width: 50%;"></div></div></div></div><div style=3D"borde=
+r: 1px solid #dadce0; padding: 20px 12px;background-color: #fff; border-rad=
+ius: 8px; margin-bottom: 12px;margin-bottom: 12px;"><div style=3D"padding: =
+0 12px;"><h2 dir=3D"auto" style=3D"color: #202124;font-family: Roboto,Helve=
+tica,Arial,sans-serif;font-size: 16px; font-weight: 400; line-height: 24px;=
+white-space: pre-wrap;margin: 0 0 16px;">Year of Passing<br></h2></div><div=
+ style=3D"padding: 0 12px;"><div style=3D"width: 100%;"><div dir=3D"auto" s=
+tyle=3D"white-space: pre-wrap;border-bottom: 1px dotted rgba(0,0,0,0.38);ma=
+rgin: 12px 0 8px; min-height: 20px;display: inline-block; max-width: 100%; =
+min-width: 50%;"></div></div></div></div><div style=3D"border: 1px solid #d=
+adce0; padding: 20px 12px;background-color: #fff; border-radius: 8px; margi=
+n-bottom: 12px;margin-bottom: 12px;"><div style=3D"padding: 0 12px;"><h2 di=
+r=3D"auto" style=3D"color: #202124;font-family: Roboto,Helvetica,Arial,sans=
+-serif;font-size: 16px; font-weight: 400; line-height: 24px;white-space: pr=
+e-wrap;margin: 0 0 16px;">Current Semester Registered <br></h2></div><div s=
+tyle=3D"padding: 0 12px;"><div style=3D"width: 100%;"><div dir=3D"auto" sty=
+le=3D"white-space: pre-wrap;border-bottom: 1px dotted rgba(0,0,0,0.38);marg=
+in: 12px 0 8px; min-height: 20px;display: inline-block; max-width: 100%; mi=
+n-width: 50%;"></div></div></div></div><div style=3D"border: 1px solid #dad=
+ce0; padding: 20px 12px;background-color: #fff; border-radius: 8px; margin-=
+bottom: 12px;margin-bottom: 12px;"><div style=3D"padding: 0 12px;"><h2 dir=
+=3D"auto" style=3D"color: #202124;font-family: Roboto,Helvetica,Arial,sans-=
+serif;font-size: 16px; font-weight: 400; line-height: 24px;white-space: pre=
+-wrap;margin: 0 0 16px;">CGPA upto last semester</h2></div><div style=3D"pa=
+dding: 0 12px;"><div style=3D"width: 100%;"><div dir=3D"auto" style=3D"whit=
+e-space: pre-wrap;border-bottom: 1px dotted rgba(0,0,0,0.38);margin: 12px 0=
+ 8px; min-height: 20px;display: inline-block; max-width: 100%; min-width: 5=
+0%;"></div></div></div></div><div style=3D"border: 1px solid #dadce0; paddi=
+ng: 20px 12px;background-color: #fff; border-radius: 8px; margin-bottom: 12=
+px;margin-bottom: 12px;"><div style=3D"padding: 0 12px;"><h2 dir=3D"auto" s=
+tyle=3D"color: #202124;font-family: Roboto,Helvetica,Arial,sans-serif;font-=
+size: 16px; font-weight: 400; line-height: 24px;white-space: pre-wrap;margi=
+n: 0 0 16px;">CGPA/ %<br></h2></div><div style=3D"padding: 0 12px;"><div st=
+yle=3D"width: 100%;"><div dir=3D"auto" style=3D"white-space: pre-wrap;borde=
+r-bottom: 1px dotted rgba(0,0,0,0.38);margin: 12px 0 8px; min-height: 20px;=
+display: inline-block; max-width: 100%; min-width: 50%;"></div></div></div>=
+</div><div style=3D"border: 1px solid #dadce0; padding: 20px 12px;backgroun=
+d-color: #fff; border-radius: 8px; margin-bottom: 12px;margin-bottom: 12px;=
+"><div style=3D"padding: 0 12px;"><h2 dir=3D"auto" style=3D"color: #202124;=
+font-family: Roboto,Helvetica,Arial,sans-serif;font-size: 16px; font-weight=
+: 400; line-height: 24px;white-space: pre-wrap;margin: 0 0 16px;">
+<span>Upload the scanned copy of PG degree Consolidated marksheet till last=
+ semester</span>
+
+</h2></div><div style=3D"padding: 0 12px;">No files submitted</div></div><d=
+iv style=3D"border-bottom: 1px solid #dadce0; border-left: 1px solid #dadce=
+0; border-right: 1px solid #dadce0; border-top: 8px solid rgb(103,58,183); =
+padding: 0;background-color: #fff; border-radius: 8px; margin-bottom: 12px;=
+margin-bottom: 12px;"><div style=3D"padding: 0 ;"><h2 dir=3D"auto" style=3D=
+"color: #fff;font-family: Roboto,Helvetica,Arial,sans-serif;font-size: 16px=
+; font-weight: 400; line-height: 24px;background-color: rgb(103,58,183); ma=
+rgin: 0; padding: 4px 24px 12px;border-bottom-left-radius: 8px; border-bott=
+om-right-radius: 8px;"><b>Remarks <i>(if any)</i></b><span></span></h2></di=
+v><div style=3D"padding: 0 12px;"></div></div><div style=3D"border: 1px sol=
+id #dadce0; padding: 20px 12px;background-color: #fff; border-radius: 8px; =
+margin-bottom: 12px;margin-bottom: 12px;"><div style=3D"padding: 0 12px;"><=
+h2 dir=3D"auto" style=3D"color: #202124;font-family: Roboto,Helvetica,Arial=
+,sans-serif;font-size: 16px; font-weight: 400; line-height: 24px;white-spac=
+e: pre-wrap;margin: 0 0 16px;"><b>Remarks<br></b></h2></div><div style=3D"p=
+adding: 0 12px;"><div dir=3D"auto" style=3D"white-space: pre-wrap;border-bo=
+ttom: 1px dotted rgba(0,0,0,0.38);margin: 12px 0 8px; min-height: 20px;widt=
+h: 100%;">I have prior experience in C++, Data Structures, and basic Machin=
+e Learning.
+I am keen to explore new concepts and work under guidance.</div></div></div=
+></div><table align=3D"center" cellpadding=3D"0" cellspacing=3D"0" style=3D=
+"max-width: 672px; min-width: 154px; border-collapse: separate; border-spac=
+ing: 0 0.2em;" width=3D"100%" role=3D"presentation"><tbody><tr height=3D"24=
+px"><td></td></tr><tr><td><a href=3D"https://docs.google.com/forms?usp=3Dma=
+il_form_link" style=3D"color: #424242; font-size: 13px;">Create your own Go=
+ogle Form</a></td></tr><tr><td>Does this form look suspicious? <a href=3D"h=
+ttps://docs.google.com/forms/u/0/d/e/1FAIpQLSfyjdaD97-BUbqgNoV4Wfn-28HO9--A=
+q72QNnFt0BqT_Aj4Qg/reportabuse?pli=3D1&amp;source=3Dhttps://docs.google.com=
+/forms/d/e/1FAIpQLSfyjdaD97-BUbqgNoV4Wfn-28HO9--Aq72QNnFt0BqT_Aj4Qg/viewfor=
+m?pli%3D1%26pli%3D1&amp;usp=3Dmail_receipt_abuse" target=3D"_blank" style=
+=3D"color: #424242; font-size: 13px;">Report</a></td></tr></tbody></table><=
+/div></body></html>
+--000000000000491ad9064ddd5055--

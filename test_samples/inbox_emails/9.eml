@@ -1,0 +1,699 @@
+Delivered-To: jahnavipathi530@gmail.com
+Received: by 2002:aa7:c54d:0:b0:66a:9297:46fe with SMTP id s13csp520309edr;
+        Wed, 25 Mar 2026 12:35:26 -0700 (PDT)
+X-Received: by 2002:a17:903:1aed:b0:2b0:70c8:ccea with SMTP id d9443c01a7336-2b0b09d39ccmr53135785ad.13.1774467326263;
+        Wed, 25 Mar 2026 12:35:26 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1774467326; cv=none;
+        d=google.com; s=arc-20240605;
+        b=cYeweCXnCa4H6YQDZvyMvPxLG96bpMSENesdZmMyeZIaK2V9mbwqqhjXFyGJJuTHBY
+         NzJbd5lLTrZIZqSbOjIsGxMHf0uwB1t0jg6t8ctt/Y9EO+j0RHy2z7Ow8RD3XlqLRZOJ
+         8uk1GGbKI6hD420x4y87f0Lb4MO6NiVS37dY0D8zAiN3CbBWxXM0q68EdYEr4LbAcfwi
+         BLpkWs/EMrYbjmFjaqb3FzLzgvVRldMNrrc6ZFLgg8cQnFYfFPjy/SGy/ZZm/bTSpnXk
+         8+IHI0X6CAGyk0Whc4SUll+U4f6xk23e/wPK0jQmV7qWn2nt6+HsO+9goOKU2vJ10YLM
+         03qQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=to:list-unsubscribe-post:list-unsubscribe:reply-to:subject
+         :message-id:mime-version:from:date:dkim-signature:dkim-signature;
+        bh=fY0VJeToTd/il2OtkpF2/4IucatZtRX9R5JtqA/pVT8=;
+        fh=+aA4ySGBLdLaXUmfnKAH5HOGhCwvvEBbnMc6qtspXNA=;
+        b=hwZXkOlK+3AhPHOSrgzvVP3NK5ScIB1rKu0HRU6AXCIzr4fQ9t4tz6QW8d/v0R7fmM
+         yDBwIVpyVrTI0G4Wh+BIQkg7qrReWgTfeOmkz1w58usBmP1Ol+XQqS8eYYBxX0vH2xVQ
+         qgvMTozbJuFLjiJ0l4o698BUgOGvXgzgYRff4Bp+tWEZi7isOJWnR1rAim7nmVks5g3U
+         r2HK5WtTs/2KT7sgKE5Ldne8Zffv6bZHDvpl9UAbDUsn+wfEuxbcAm6OdRENz12d+6M2
+         UTDPueD34VQLdkTEs3Cvkcf5iYCAkJjppZGo/09DLkxUgM1GKx66owTay7+Y2OJCOZT9
+         3SrQ==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@github.com header.s=smtpapi header.b=dG3Jnxr6;
+       dkim=pass header.i=@sendgrid.info header.s=smtpapi header.b=gfFFnMbe;
+       spf=pass (google.com: domain of bounces+15762298-9947-jahnavipathi530=gmail.com@sgmail.github.com designates 192.254.112.99 as permitted sender) smtp.mailfrom="bounces+15762298-9947-jahnavipathi530=gmail.com@sgmail.github.com";
+       dmarc=pass (p=QUARANTINE sp=REJECT dis=NONE) header.from=github.com
+Return-Path: <bounces+15762298-9947-jahnavipathi530=gmail.com@sgmail.github.com>
+Received: from o4.sgmail.github.com (o4.sgmail.github.com. [192.254.112.99])
+        by mx.google.com with ESMTPS id d9443c01a7336-2b0bc89f7a5si16392535ad.106.2026.03.25.12.35.25
+        for <jahnavipathi530@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 25 Mar 2026 12:35:26 -0700 (PDT)
+Received-SPF: pass (google.com: domain of bounces+15762298-9947-jahnavipathi530=gmail.com@sgmail.github.com designates 192.254.112.99 as permitted sender) client-ip=192.254.112.99;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@github.com header.s=smtpapi header.b=dG3Jnxr6;
+       dkim=pass header.i=@sendgrid.info header.s=smtpapi header.b=gfFFnMbe;
+       spf=pass (google.com: domain of bounces+15762298-9947-jahnavipathi530=gmail.com@sgmail.github.com designates 192.254.112.99 as permitted sender) smtp.mailfrom="bounces+15762298-9947-jahnavipathi530=gmail.com@sgmail.github.com";
+       dmarc=pass (p=QUARANTINE sp=REJECT dis=NONE) header.from=github.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=github.com;
+	h=content-type:date:from:mime-version:subject:reply-to:list-unsubscribe:
+	list-unsubscribe-post:to:cc:content-type:date:feedback-id:from:subject:to;
+	s=smtpapi; t=1774467208; bh=fY0VJeToTd/il2OtkpF2/4IucatZtRX9R5JtqA/pVT8=;
+	b=dG3Jnxr6LvmfngX67RGDRHq2H0YGZlz3gaBp5/qQdiuvh7z4g8/4al5OXJuOUToQKe3y
+	cthupN8B59M851igG+qwwNrQpHHFUrAmCkAsz7D72PWtSDXmB9CplexMcJbwYgMcFXGsY3
+	upRk5Vi5O84eNy4r05BjsbQy/H2WmT/DE=
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sendgrid.info;
+	h=content-type:date:from:mime-version:subject:reply-to:list-unsubscribe:
+	list-unsubscribe-post:to:cc:content-type:date:feedback-id:from:subject:to;
+	s=smtpapi; t=1774467208; bh=fY0VJeToTd/il2OtkpF2/4IucatZtRX9R5JtqA/pVT8=;
+	b=gfFFnMbeUw/fqTnCV13RJJiG+El1xa0i6gt7SKUQsRUoWeZj+FQNrwPN9JbBx5KMdaxg
+	woU9UPb5cGbWLkT2uC8VP9PSe6kWEQ/CsojbQnljuHCNgZmuQT6iNSGytvA7fjWlMC2C6z
+	mhO9bZkH/TqgdhzZW53kfVUyuMg2lTXtc=
+Received: by recvd-canary-69d6d5fbbf-ptgfv with SMTP id recvd-canary-69d6d5fbbf-ptgfv-1-69C43887-31
+	2026-03-25 19:33:27.302315623 +0000 UTC m=+1384761.732589696
+Received: from MTU3NjIyOTg (unknown)
+	by geopod-ismtpd-101 (SG) with HTTP
+	id pLn5r9UUSr-abfV4Vp-jBA
+	Wed, 25 Mar 2026 19:33:27.270 +0000 (UTC)
+Content-Type: multipart/alternative; boundary=b41aea9c5d1e1074ead44d71d27f882b6d6c727c8c4d1a2be3a807b26e2c
+Date: Wed, 25 Mar 2026 19:33:28 +0000 (UTC)
+From: GitHub <no-reply@github.com>
+Mime-Version: 1.0
+Message-ID: <pLn5r9UUSr-abfV4Vp-jBA@geopod-ismtpd-101>
+Subject: Important Update to GitHub Copilot Interaction Data Usage Policy
+Reply-To: no-reply@github.com
+List-Unsubscribe: <https://help.github.com/articles/github-terms-of-service/>
+List-Unsubscribe-Post: List-Unsubscribe=One-Click
+X-SG-EID: 
+ =?us-ascii?Q?u001=2ElNcmDc+hNZCEz2pmfZvb7c06gzb3BS2ccswLYstE88vJsNwOZOT1JmXsy?=
+ =?us-ascii?Q?XBxMpPRp6YQ8z7p1=2F8sSuUiXi1f82yVkPeOCicc?=
+ =?us-ascii?Q?xNjCzfTclsjqmR7VWemFMFtpbMetUJmyuo0nCv+?=
+ =?us-ascii?Q?oje54HBzBpXMLOawgG+1nfvG=2FR+e6USdwFUAsn+?=
+ =?us-ascii?Q?RttxBY+hZ7WaOrAhS3SG3C2IIF4nPT2b5ekHw92?=
+ =?us-ascii?Q?T9MfZwHk3JUfnTXtTG4sz+cnXgVlRjcSFYPcZbe?= =?us-ascii?Q?lIUA?=
+X-SG-ID: 
+ =?us-ascii?Q?u001=2EXwhBPNhCejkv4+fVosb2QVfR16Qxp9CrA7PjDe5zzeI=2F0IZCBsPXtgHbA?=
+ =?us-ascii?Q?oGIj+Rs6OlRm=2FcaEsw=2FcuQFYvtovQxG2Eq1SU7B?=
+ =?us-ascii?Q?65rZKu5ZeoNq8Ti1S9MX+R5OO9Fx46CNEUkgZma?=
+ =?us-ascii?Q?qDBjzRW=2FI=2F2zpGi5+oUgjIavkYK4P=2Fu9rjIPZUU?=
+ =?us-ascii?Q?JixQ8LSI0eWhc9UwKFRX56sL=2F1KTVfzljyNc6+h?=
+ =?us-ascii?Q?RuamO4xD9MK6z3K4mp4rUMBlBUxMPn=2FG99stOJV?=
+ =?us-ascii?Q?mjOnS38T2mYcwoweDBdtCFLY4AXunbGNsF=2FDBZ5?=
+ =?us-ascii?Q?pAsH+T693LVDKOG0M6MqG3o5oM6Mq68mJXkBtjy?=
+ =?us-ascii?Q?NC=2F+KVkcXY0r6cMWggJuRqmvAjV=2FK8sLEtu2gqJ?=
+ =?us-ascii?Q?QJemYOv=2F4uQWMKljmvV0bgiO439DM4mVVT9tZLF?=
+ =?us-ascii?Q?jWlgRjj+Qa08YDzZ3C2aa2egoTOySr3FASPsHuu?=
+ =?us-ascii?Q?3GLsDXXjjlk9HkmsBfP1KG83AtBxJnUPMIycEG=2F?=
+ =?us-ascii?Q?D9+IFkGwyQoo+CWcKox0OY=2FbnJ3sF1UBbY+lCo9?=
+ =?us-ascii?Q?CcxfDCkQf78Bz6MaOBN2XHcKO6yJg=2FFq5CLer6n?=
+ =?us-ascii?Q?zqOLIC8nFgGpzCXplzzjMqQRjm5JXV+N6rvTc9U?=
+ =?us-ascii?Q?QrJQERO2+K3xMKIVSeeqFs13HlYw0xGp=2Fk4vlMl?=
+ =?us-ascii?Q?zCo5SSDKXcov2liQnWPpeb7FeHjcg1DQCrJs+M6?=
+ =?us-ascii?Q?gYy2Wt4LSSOJNpymMzPPM0kYOfH=2FDYCuBhaemcM?=
+ =?us-ascii?Q?0eBxgk9p7wB1Kr8R1lays4oDEcc=3D?=
+To: jahnavipathi530@gmail.com
+X-Entity-ID: u001.zPOmrVsTL1n2tIQilAIYoQ==
+
+--b41aea9c5d1e1074ead44d71d27f882b6d6c727c8c4d1a2be3a807b26e2c
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=utf-8
+Mime-Version: 1.0
+
+=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=
+=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=
+=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C=C2=A0=
+=E2=80=8C=C2=A0=E2=80=8C=C2=A0=E2=80=8C
+
+( https://github.com?utm_source=3Dgithub&utm_medium=3Demail&utm_campaign=3D=
+FY26MAR-WW-LCM-X-CBCE-AA-Devs-TX-701Kg000000PijXIAS )
+
+Hi there,
+
+We=E2=80=99re updating how GitHub uses data to improve AI-powered coding to=
+ols. From April 24 onward, your interactions with GitHub Copilot=E2=80=94in=
+cluding inputs, outputs, code snippets, and associated context=E2=80=94may =
+be used to train and enhance AI models *unless you opt out*.
+
+If you previously opted out of the setting allowing GitHub to collect this =
+data for product improvements, your preference has been retained=E2=80=94 y=
+our choice is preserved, and your data will not be used for training unless=
+ you opt in.
+
+This approach aligns with established industry practices and will enable ou=
+r models to deliver more context-aware AI coding assistance. We have tested=
+ this with Microsoft interaction data and have seen meaningful improvements=
+, including increased acceptance rates in multiple languages.
+
+Please review your settings and choose whether your interactions with Copil=
+ot can be leveraged for training AI models before this update goes into eff=
+ect on April 24. To opt out or adjust your settings:
+
+* Go to *GitHub Account Settings*
+* Select *Copilot*
+* Choose whether to allow your data to be used for AI model training
+
+To learn more, please refer to our blog post ( https://gh.io/AAzfaht?utm_so=
+urce=3Dgithub&utm_medium=3Demail&utm_campaign=3DFY26MAR-WW-LCM-X-CBCE-AA-De=
+vs-TX-701Kg000000PijXIAS ) and FAQ ( https://github.com/orgs/community/disc=
+ussions/188488?utm_source=3Dgithub&utm_medium=3Demail&utm_campaign=3DFY26MA=
+R-WW-LCM-X-CBCE-AA-Devs-TX-701Kg000000PijXIAS ).
+
+Please reach out to our support team ( https://docs.github.com/en/support/c=
+ontacting-github-support?utm_source=3Dgithub&utm_medium=3Demail&utm_campaig=
+n=3DFY26MAR-WW-LCM-X-CBCE-AA-Devs-TX-701Kg000000PijXIAS ) if you have any q=
+uestions about this update. Thank you for your continued use of GitHub Copi=
+lot.
+
+Sincerely,
+The GitHub Team
+
+Privacy policy ( https://help.github.com/articles/github-privacy-policy/ ) =
+=E2=80=A2 Terms of use ( https://help.github.com/articles/github-terms-of-s=
+ervice/ ) =E2=80=A2 Contact us ( https://docs.github.com/en/support/contact=
+ing-github-support )
+
+GitHub, Inc. =C2=A0=E2=80=A2=C2=A0 88 Colin P Kelly Jr Street =C2=A0=E2=80=
+=A2=C2=A0 San Francisco, CA 94107
+
+You are receiving this because you are a GitHub Copilot user.
+--b41aea9c5d1e1074ead44d71d27f882b6d6c727c8c4d1a2be3a807b26e2c
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/html; charset=utf-8
+Mime-Version: 1.0
+
+<!DOCTYPE html>
+<html lang=3D"en" xmlns=3D"http://www.w3.org/1999/xhtml" xmlns:v=3D"urn:sch=
+emas-microsoft-com:vml" xmlns:o=3D"urn:schemas-microsoft-com:office:office"=
+>
+<head>
+    <meta charset=3D"utf-8">
+    <meta name=3D"viewport" content=3D"width=3Ddevice-width">
+    <meta http-equiv=3D"X-UA-Compatible" content=3D"IE=3Dedge">
+    <meta name=3D"x-apple-disable-message-reformatting">
+    <meta name=3D"format-detection" content=3D"telephone=3Dno,address=3Dno,=
+email=3Dno,date=3Dno,url=3Dno">
+    <meta name=3D"color-scheme" content=3D"light dark">
+    <meta name=3D"supported-color-schemes" content=3D"light dark">
+    <title></title>
+
+    <!--[if gte mso 9]>
+    <xml>
+        <o:OfficeDocumentSettings>
+        <o:AllowPNG/>
+        <o:PixelsPerInch>96</o:PixelsPerInch>
+        </o:OfficeDocumentSettings>
+    </xml>
+    <![endif]-->
+
+    <!-- Web Font / @font-face : BEGIN -->
+    <!-- Desktop Outlook chokes on web font references and defaults to Time=
+s New Roman, so we force a safe fallback font. -->
+    <!--[if mso]>
+        <style>
+            * {
+                font-family: sans-serif !important;
+            }
+        </style>
+    <![endif]-->
+
+    <!--[if !mso]><!-->
+    <link href=3D'https://fonts.googleapis.com/css?family=3DMona+Sans:300,4=
+00,500,600,700' rel=3D'stylesheet' type=3D'text/css'>
+    <!--<![endif]-->
+    <!-- Web Font / @font-face : END -->
+
+    <!-- CSS Reset : BEGIN -->
+    <style>
+        :root { color-scheme: light dark; supported-color-schemes: light da=
+rk; }
+        html, body { margin: 0 auto !important; padding: 0 !important; heig=
+ht: 100% !important; width: 100% !important; }
+        * { -ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; }
+        div[style*=3D"margin: 16px 0"] { margin: 0 !important; }
+        #MessageViewBody, #MessageWebViewDiv{ width: 100% !important; }
+        table, td { mso-table-lspace: 0pt !important; mso-table-rspace: 0pt=
+ !important; }
+        table { border-spacing: 0 !important; border-collapse: collapse !im=
+portant; table-layout: fixed !important; margin: 0 auto !important; }
+        img { -ms-interpolation-mode:bicubic; }
+        a { text-decoration: none; }
+        a[x-apple-data-detectors], .unstyle-auto-detected-links a, .aBn { b=
+order-bottom: 0 !important; cursor: default !important; color: inherit !imp=
+ortant; text-decoration: none !important; font-size: inherit !important; fo=
+nt-family: inherit !important; font-weight: inherit !important; line-height=
+: inherit !important; }
+        .im { color: inherit !important; }
+        .a6S { display: none !important; opacity: 0.01 !important; }
+        img.g-img + div { display: none !important; }
+        @media only screen and (min-device-width: 320px) and (max-device-wi=
+dth: 374px) {
+            u ~ div .email-container { min-width: 320px !important; }
+        }
+        @media only screen and (min-device-width: 375px) and (max-device-wi=
+dth: 413px) {
+            u ~ div .email-container { min-width: 375px !important; }
+        }
+        @media only screen and (min-device-width: 414px) {
+            u ~ div .email-container { min-width: 414px !important; }
+        }
+    </style>
+    <!-- CSS Reset : END -->
+
+    <!-- Progressive Enhancements : BEGIN -->
+    <style>
+	    /* What it does: Hover styles for buttons */
+	    .button-td,
+	    .button-a {
+	        transition: all 100ms ease-in;
+	    }
+	    .button-td-primary:hover,
+	    .button-a-primary:hover {
+	        background: #32383f !important;
+	        border-color: #32383f !important;
+            color: #ffffff !important;
+	    }
+
+	    .button-td-secondary:hover,
+	    .button-a-secondary:hover {
+	        background: #F1F2F4 !important;
+	        border-color: #24292F !important;
+	    }
+
+	    /* Media Queries */
+	    @media screen and (max-width: 480px) {
+	        /* What it does: Forces table cells into full-width rows. */
+	        .stack-column, .stack-column-center { display: block !important; w=
+idth: 100% !important; max-width: 100% !important; direction: ltr !importan=
+t; }
+	        /* And center justify these ones. */
+	        .stack-column-center { text-align: center !important; }
+	        /* What it does: Generic utility class for centering. Useful for i=
+mages, buttons, and nested tables. */
+	        .center-on-narrow { text-align: center !important; display: block =
+!important; margin-left: auto !important; margin-right: auto !important; fl=
+oat: none !important; }
+	        table.center-on-narrow { display: inline-block !important; }
+	        /* What it does: Adjust typography on small screens to improve rea=
+dability */
+	        .email-container p { font-size: 16px !important; line-height: 24px=
+ !important; }
+            h1 { font-size: 24px !important; line-height: 32px !important; =
+}
+            h2 { font-size: 24px !important; line-height: 32px !important; =
+}
+            h3 { font-size: 20px !important; line-height: 28px !important; =
+}
+            .footer p { font-size: 12px !important; }
+            .content-container, .cta-container { padding: 32px  !important;=
+ }
+            .river-content { padding-left: 0 !important; padding-right: 0 !=
+important; }
+            .parent-container { padding: 20px 20px 20px 20px !important; }
+	    }
+
+        /* Dark Mode Styles : BEGIN */
+        @media (prefers-color-scheme: dark) {
+            .email-bg { background: #0d1117 !important; }
+            .darkmode-bg { background: #0d1117 !important; }
+            .content-container { background: #21262D !important; }
+            .cta-container { background: #212586 !important; }
+            h1, h2, h3, strong, .strong { color: #ffffff !important; }
+            p, li, .darkmode-text, .email-container { color: #cfd5dc !impor=
+tant; }
+            .email-container a { color: #80ccff !important; }
+            td.button-td-primary, td.button-td-primary a { background: #f6f=
+8fa !important; border-color: #f6f8fa !important; color: #0d1117 !important=
+; }
+            td.button-td-primary:hover, td.button-td-primary a:hover { back=
+ground: #e6eaef !important; border-color: #e6eaef !important; color: #0d111=
+7 !important; }
+            td.button-td-secondary, td.button-td-secondary a { background: =
+transparent !important; border-color: #ffffff !important; color: #ffffff !i=
+mportant; }
+            td.button-td-secondary:hover, td.button-td-secondary a:hover { =
+background: #252B32 !important; border-color: #e6eaef !important; color: #f=
+fffff !important; }
+            .darkmode-fullbleed-bg { background-color: #0d1117 !important; =
+}
+            .dark-mode-hide { display: none !important; }
+            .dark-mode-show { display: block !important; }
+            hr { background: #59636e !important; color: #59636e !important;=
+ }
+            .river-content-label {color: #ffffff !important; border-color: =
+#ffffff !important;}
+        }
+        /* Dark Mode Styles : END */
+    </style>
+    <!-- Progressive Enhancements : END -->
+
+</head>
+<body width=3D"100%" style=3D"margin: 0; padding: 0 !important; mso-line-he=
+ight-rule: exactly; background-color: #ffffff;" class=3D"email-bg">
+  <center role=3D"article" aria-roledescription=3D"email" lang=3D"en" style=
+=3D"width: 100%; background-color: #ffffff;" class=3D"email-bg">
+    <!--[if mso | IE]>
+    <table role=3D"presentation" border=3D"0" cellpadding=3D"0" cellspacing=
+=3D"0" width=3D"100%" style=3D"background-color: #ffffff;" class=3D"email-b=
+g">
+    <tr>
+    <td>
+    <![endif]-->
+
+        <!-- Visually Hidden Preheader Text : BEGIN -->
+        <div style=3D"max-height:0; overflow:hidden; mso-hide:all;" aria-hi=
+dden=3D"true">
+            <!-- Insert Text Here -->
+           =20
+        </div>
+        <div style=3D"display: none; font-size: 1px; line-height: 1px; max-=
+height: 0px; max-width: 0px; opacity: 0; overflow: hidden; mso-hide: all; f=
+ont-family: 'Mona Sans', sans-serif;">
+	        &zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;=
+&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nb=
+sp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;
+        </div>
+        <!-- Visually Hidden Preheader Text : END -->
+
+        <!--
+            Set the email width. Defined in two places:
+            1. max-width for all clients except Desktop Windows Outlook, al=
+lowing the email to squish on narrow but never go wider than 640px.
+            2. MSO tags for Desktop Windows Outlook enforce a 640px width.
+            Note: The Fluid and Responsive templates have a different width=
+ (640px). The hybrid grid is more "fragile", and I've found that 640px is a=
+ good width. Change with caution.
+        -->
+        <div style=3D"max-width: 640px; margin: 0 auto;" class=3D"email-con=
+tainer">
+            <!--[if mso]>
+            <table align=3D"center" role=3D"presentation" cellspacing=3D"0"=
+ cellpadding=3D"0" border=3D"0" width=3D"680">
+            <tr>
+            <td>
+            <![endif]-->
+
+	        <!-- Email Body : BEGIN -->
+	        <table role=3D"presentation" cellspacing=3D"0" cellpadding=3D"0" b=
+order=3D"0" width=3D"100%" style=3D"margin: auto;">
+
+                <!-- Logo Component : BEGIN
+                 =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D -->
+	            <tr>
+	                <td style=3D"padding: 32px 0; text-align: center">
+	                    <a href=3D"https://mailing.github.com/ls/click?upn=3Du=
+001.yTwbFXLgCmEu8hAAUi-2FKKisgeFULjl6Kth-2Bz6sYvcdR7MHxawFrJBKsyDKpnzsinbNq=
+aNWWI-2BxpBARfSyhEaFzrgTyeaq7vAxS8HYUHGIvX1JXyrZt7H7OK5bSgTV0nkVet2DM-2FBFg=
+21gAsdvz60-2FANykg-2FyB8W2X0-2FtFqOvHno-3DavhG_8gQZQtRaUNUBsYAy2b1cT-2BpyzF=
+OH-2BZ3-2FAWK3Blh-2BXe0yyz1GQCQTUZOyrUxuzl5lOFLyd9f1GG0euzAQQTAKmloQ16Eayti=
+swD-2FOZ1dHsINBesebz9AAuNbEKYVViHa1FmfRwemUmauV5PKKLGv4GVhE7pRn1Hu5dif-2FvP=
+244Q-2BF1-2BxEjgLLyuDD33CTS9G4158ca4253EpcgiL84CUgL0ykrX4vvNdv1ulWhGPCpMWs7=
+38Yz6LWx5HtK4r2CCAnfLED0Q52DJOixWsmfUlN6v4WJ3fI-2FuhJ-2Bg7ng2boogle6rC-2FN-=
+2B24aAXSrTEBJ7tCF1ZLGXSDOeoT5JOmFmMyhvD5eea5WRJv36C6Gi6Xzkq74DvG2c4g7wiYlwU=
+vwD3aDIXPAwI7T-2BBTE0mXm7GvflkE9zdtKaVX3FAAFG7r95mD32n3INntGB-2BKCXmYFs7Qs-=
+2BWQ5NKgxbBLWborOtgwqiE-2FthwiTBFamCJDo-2FKdFIFbAwy-2B-2F12dtfmmkttcvl9Rpvu=
+nllI-2Fi8LeqsKSwzNoz9Xg3n1t6NCB6Pd-2FD1-2FY3-2FWS-2Be-2FGf-2F5RvVSgtJRLuGw9=
+FdBXIO67lnY5BJzQ-2Fqfb9Bf4Qz8jmZUy0LRvn7h1Mi2YJ3rqu9LoJBPQUFpbYrcfi67a3CUZD=
+u83HPjWkZQfvI3ROPyk80uj1Mq0IavqbNZ0haQspr1k06N7bX1PvwKVEnXJJTN5op0uHf4RGg7t=
+bgCul5FB7xMtLO89lR6RGCWdlnmR4Ri4S2ijxwQGcKo3ANdKv4Cajx1w50ajLV3aK5Rd0fk0EpK=
+Mm2I-2BYERjuoZD1n1T41l13hRrP-2FSIUthuAfjQCZROo0-2FBFkC0Z-2FfRecWTyCSWwsoAsP=
+mG9MnYQMgg-2BuG1BSVzASYL4yS-2F7Ege20rSxNo-2FJjskW51ghtc7vY3oWpbMLsLnM-2FnXr=
+PlJ5pc-3D">
+                            <center>
+                                <img src=3D"http://cdn.mcauto-images-produc=
+tion.sendgrid.net/fedb93c4bdeb888c/6b0badf1-2e15-4f63-ae41-fbbc26a4a393/240=
+x240.png" width=3D"36" height=3D"36" alt=3D"GitHub" border=3D"0" style=3D"d=
+isplay: block;" class=3D"dark-mode-hide">
+
+                                <!--[if !mso]><!-->
+                                <img src=3D"http://cdn.mcauto-images-produc=
+tion.sendgrid.net/fedb93c4bdeb888c/0cd33dad-47e3-4762-9315-e56adde40205/230=
+x225.png" width=3D"36" height=3D"36" alt=3D"GitHub" border=3D"0" style=3D"d=
+isplay: none;" class=3D"dark-mode-show">
+                                <!--<![endif]-->
+                            </center>
+                        </a>
+	                </td>
+	            </tr>
+		        <!-- Logo Component : END
+                 =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D -->
+           =20
+
+                <!-- Hero Image, Flush : END -->
+                <!-- 1 Column Text + Button : BEGIN -->
+                <tr>
+                    <td style=3D"background-color: #ffffff;" class=3D"darkm=
+ode-bg parent-container">
+                        <table role=3D"presentation" cellspacing=3D"0" cell=
+padding=3D"0" border=3D"0" width=3D"100%">
+                            <tr>
+                                <td style=3D"padding: 20px 40px 20px 40px; =
+font-family: 'Mona Sans', sans-serif; font-size: 16px; line-height: 28px; c=
+olor: #575f6a; text-align: left;">
+
+                                    <p style=3D"margin: 28px 0 10px;">
+                                        Hi there,
+                                    </p>
+
+                                    <p style=3D"margin: 28px 0 10px;">
+                                        We=E2=80=99re updating how GitHub u=
+ses data to improve AI-powered coding tools. From April 24 onward, your int=
+eractions with GitHub Copilot=E2=80=94including inputs, outputs, code snipp=
+ets, and associated context=E2=80=94may be used to train and enhance AI mod=
+els <strong style=3D"color: #0d1117; font-weight: 500;">unless you opt out<=
+/strong>.
+                                    </p>
+
+                                    <p style=3D"margin: 28px 0 10px;">
+                                        If you previously opted out of the =
+setting allowing GitHub to collect this data for product improvements, your=
+ preference has been retained=E2=80=94 your choice is preserved, and your d=
+ata will not be used for training unless you opt in.
+                                    </p>
+
+                                    <p style=3D"margin: 28px 0 10px;">
+                                        This approach aligns with establish=
+ed industry practices and will enable our models to deliver more context-aw=
+are AI coding assistance. We have tested this with Microsoft interaction da=
+ta and have seen meaningful improvements, including increased acceptance ra=
+tes in multiple languages.
+                                    </p>
+
+                                    <p style=3D"margin: 28px 0 10px;">
+                                        Please review your settings and cho=
+ose whether your interactions with Copilot can be leveraged for training AI=
+ models before this update goes into effect on April 24. To opt out or adju=
+st your settings:
+                                    </p>
+
+                                    <p style=3D"margin: 28px 0 10px;">
+                                        <ul>
+                                            <li>Go to <strong style=3D"colo=
+r: #0d1117; font-weight: 500;">GitHub Account Settings</strong></li>
+                                            <li>Select <strong style=3D"col=
+or: #0d1117; font-weight: 500;">Copilot</strong></li>
+                                            <li>Choose whether to allow you=
+r data to be used for AI model training</li>
+                                        </ul>   =20
+                                    </p>
+
+                                    <p style=3D"margin: 28px 0 10px;">
+                                        To learn more, please refer to our =
+<a href=3D"https://mailing.github.com/ls/click?upn=3Du001.yTwbFXLgCmEu8hAAU=
+i-2FKKmEs-2Bt2WFjeOvL1-2FfQTYRfMzmSjZA67ahogw1R0WJdNI2fDX6FpeZWj3Nj-2BdIBeG=
+MV8AOFayfrZ5ir74NCvBn70pGZE2sxAttYFcB1yGX4vy-2Blq6DfOrMGPOC0GvXh3ZLnQJbnaFY=
+b9TygW0P-2BAQdDEj0ouCN63O5rsok4mbAtIJpdFT_8gQZQtRaUNUBsYAy2b1cT-2BpyzFOH-2B=
+Z3-2FAWK3Blh-2BXe0yyz1GQCQTUZOyrUxuzl5lOFLyd9f1GG0euzAQQTAKmloQ16EaytiswD-2=
+FOZ1dHsINBesebz9AAuNbEKYVViHa1FmfRwemUmauV5PKKLGv4GVhE7pRn1Hu5dif-2FvP244Q-=
+2BF1-2BxEjgLLyuDD33CTS9G4158ca4253EpcgiL84CUgL0ykrX4vvNdv1ulWhGPCpMWs738Yz6=
+LWx5HtK4r2CCAnfLED0Q52DJOixWsmfUlN6v4WJ3fI-2FuhJ-2Bg7ng2boogle6rC-2FN-2B24a=
+AXSrTEBJ7tCF1ZLGXSDOeoT5JOmFmMyhvD5eea5WRJv36C6Gi6Xzkq74DvG2c4g7wiYlwUvwD3a=
+DIXPAwI7T-2BBTE0mXm7GvflkE9zdtKaVX3FAAFG7r95mD32n3INntGB-2BKCXmYFs7Qs-2BWQ5=
+NKgxbBLWborOtgwqiE-2FthwiTBFamCJDo-2FKdFIFbAwy-2B-2F12dtfmmkttcvl9RpvunllI-=
+2Fi8LeqsKSwzNoz9Xg3n1t6NCB6Pd-2FD1-2FY3-2FWS-2Be-2FGf-2F5RvVSgtJRLuGw9FdBXI=
+O67lnY5BJzQ-2Fqfb9Bf4Qz8jmZUy0LRvn7h1Mi2YJ3rqu9LoJBPQUFpbYrcfi67a3CUZDu83HP=
+jWkZQfvI3ROPyk80uj1Mq0IavqbNZ0haQspr1k06N7bX1PvwKVEnXJJTN5op0uHf4RGg7tbgCul=
+5FB7xMtLO89lR6RGCWdlnmR4Ri4S2ijxwQGcKo3ANdKv4Cajx1w50ajLV3aK2UK8m7FUqGFKdVJ=
+LaCENYCj8tmp4GxofPnhzoLHE8qMrdtYmHamPOT5LUQsNRdgCDMQE6fmCvKtXeVa7MRBNnlEjs5=
+FloFdONS8T72Xd7QiRjn0yjZk9TXVrtzbOA3DEOE9DDr9o7G1w6JeqOvHpRc-3D" style=3D"c=
+olor: #0d1117; font-weight: 500; text-decoration: underline;">blog post</a>=
+ and <a href=3D"https://mailing.github.com/ls/click?upn=3Du001.yTwbFXLgCmEu=
+8hAAUi-2FKKqYxs1dKMXqk3i0sWRHDFQTr98LhIhUc-2FsIoCTYjNKplm-2BXDCReYHAnG3snjI=
+mrZozZgYZ6dXnwjE0bVCY-2FZ9Ks-2FhOt5jnmKgZpzlFraRLq9f62dm4T-2BZG0fg9dGpUqxsl=
+QNNIf6s4yAy16TemN25W1aclotS1xnAweA9w3VDrJZLL4bHGTa0Ulzwts9iVj6EWzfhsIFVcKcF=
+XrRlXQIYGA-3D-zUh_8gQZQtRaUNUBsYAy2b1cT-2BpyzFOH-2BZ3-2FAWK3Blh-2BXe0yyz1GQ=
+CQTUZOyrUxuzl5lOFLyd9f1GG0euzAQQTAKmloQ16EaytiswD-2FOZ1dHsINBesebz9AAuNbEKY=
+VViHa1FmfRwemUmauV5PKKLGv4GVhE7pRn1Hu5dif-2FvP244Q-2BF1-2BxEjgLLyuDD33CTS9G=
+4158ca4253EpcgiL84CUgL0ykrX4vvNdv1ulWhGPCpMWs738Yz6LWx5HtK4r2CCAnfLED0Q52DJ=
+OixWsmfUlN6v4WJ3fI-2FuhJ-2Bg7ng2boogle6rC-2FN-2B24aAXSrTEBJ7tCF1ZLGXSDOeoT5=
+JOmFmMyhvD5eea5WRJv36C6Gi6Xzkq74DvG2c4g7wiYlwUvwD3aDIXPAwI7T-2BBTE0mXm7Gvfl=
+kE9zdtKaVX3FAAFG7r95mD32n3INntGB-2BKCXmYFs7Qs-2BWQ5NKgxbBLWborOtgwqiE-2Fthw=
+iTBFamCJDo-2FKdFIFbAwy-2B-2F12dtfmmkttcvl9RpvunllI-2Fi8LeqsKSwzNoz9Xg3n1t6N=
+CB6Pd-2FD1-2FY3-2FWS-2Be-2FGf-2F5RvVSgtJRLuGw9FdBXIO67lnY5BJzQ-2Fqfb9Bf4Qz8=
+jmZUy0LRvn7h1Mi2YJ3rqu9LoJBPQUFpbYrcfi67a3CUZDu83HPjWkZQfvI3ROPyk80uj1Mq0Ia=
+vqbNZ0haQspr1k06N7bX1PvwKVEnXJJTN5op0uHf4RGg7tbgCul5FB7xMtLO89lR6RGCWdlnmR4=
+Ri4S2ijxwQGcKo3ANdKv4Cajx1w50ajLV3aK25eIqnTTtM6FlTAi2FSAFB2tAdYbBEGo1rfN-2B=
+hMoFRVkUk-2BHNS8ys1kOqK4rsCXX8EVu-2FQmMuZKnyFdQfYdPac5lXJpTxMphJ1ZxDaLu9kqH=
+6SiVfrRbBJ7uOjTr-2FeFKRoa1Fp6fLR6ZsRAf5BrHjE-3D" style=3D"color: #0d1117; f=
+ont-weight: 500; text-decoration: underline;">FAQ</a>.
+                                    </p>
+
+                                    <p style=3D"margin: 28px 0 10px;">
+                                        Please reach out to our <a href=3D"=
+https://mailing.github.com/ls/click?upn=3Du001.yTwbFXLgCmEu8hAAUi-2FKKsBZ-2=
+B0y4zj0sElUXN1pD95sGx-2BFPEKnZ8fic8p6xkenm5H1fc-2BXUz7Vumw1-2BsfwSVlEN8XEp4=
+Hx91IOxFifwt1cDhAT5B8BLRIcxrnE4CtUPZsWBlkZMAxN7mU-2BZIUBvQkwV3S38FuTeGA3cJD=
+8tTBI8X-2BXC7mmrjO70SnYDks9oCjNTgT8ecmU5BNIB3dfFl4FJRY897nE36dxnaDFNgdw-3D8=
+ouv_8gQZQtRaUNUBsYAy2b1cT-2BpyzFOH-2BZ3-2FAWK3Blh-2BXe0yyz1GQCQTUZOyrUxuzl5=
+lOFLyd9f1GG0euzAQQTAKmloQ16EaytiswD-2FOZ1dHsINBesebz9AAuNbEKYVViHa1FmfRwemU=
+mauV5PKKLGv4GVhE7pRn1Hu5dif-2FvP244Q-2BF1-2BxEjgLLyuDD33CTS9G4158ca4253Epcg=
+iL84CUgL0ykrX4vvNdv1ulWhGPCpMWs738Yz6LWx5HtK4r2CCAnfLED0Q52DJOixWsmfUlN6v4W=
+J3fI-2FuhJ-2Bg7ng2boogle6rC-2FN-2B24aAXSrTEBJ7tCF1ZLGXSDOeoT5JOmFmMyhvD5eea=
+5WRJv36C6Gi6Xzkq74DvG2c4g7wiYlwUvwD3aDIXPAwI7T-2BBTE0mXm7GvflkE9zdtKaVX3FAA=
+FG7r95mD32n3INntGB-2BKCXmYFs7Qs-2BWQ5NKgxbBLWborOtgwqiE-2FthwiTBFamCJDo-2FK=
+dFIFbAwy-2B-2F12dtfmmkttcvl9RpvunllI-2Fi8LeqsKSwzNoz9Xg3n1t6NCB6Pd-2FD1-2FY=
+3-2FWS-2Be-2FGf-2F5RvVSgtJRLuGw9FdBXIO67lnY5BJzQ-2Fqfb9Bf4Qz8jmZUy0LRvn7h1M=
+i2YJ3rqu9LoJBPQUFpbYrcfi67a3CUZDu83HPjWkZQfvI3ROPyk80uj1Mq0IavqbNZ0haQspr1k=
+06N7bX1PvwKVEnXJJTN5op0uHf4RGg7tbgCul5FB7xMtLO89lR6RGCWdlnmR4Ri4S2ijxwQGcKo=
+3ANdKv4Cajx1w50ajLV3aK2BCrhSlsKltlrPNQg4OAR6IgJTTiBf-2FESEj-2F5TSAoCqhOLZ52=
+-2FcRWYjpnuhZmkT7h8Lw8e1B3whXlK89MK0R8KdQTsr-2Bad7IhP77SreFsAz1QUIbgBPAypGP=
+E5HW5Y7RZZNFJgZWkQq-2BUqWV40aoDE-3D" style=3D"color: #0d1117; font-weight: =
+500; text-decoration: underline;">support team</a> if you have any question=
+s about this update. Thank you for your continued use of GitHub Copilot.
+                                    </p>
+
+                                    <p style=3D"margin: 28px 0 10px;">
+                                        Sincerely,<br>
+                                        The GitHub Team
+                                    </p>
+
+                                </td>
+                            </tr>
+                           =20
+                        </table>
+                    </td>
+                </tr>
+                <!-- 1 Column Text + Button : END -->
+                <!-- Hero Component : END
+                 =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D -->
+
+               =20
+
+                <!-- Footer Component : BEGIN
+                 =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D -->
+                <tr>
+                    <td style=3D"background-color: #ffffff; padding: 64px 2=
+0px 64px 20px;" class=3D"darkmode-bg">
+                        <table role=3D"presentation" cellspacing=3D"0" cell=
+padding=3D"0" border=3D"0" width=3D"100%">
+                            <tr>
+                                <td class=3D"content-container footer" styl=
+e=3D"background-color: #f6f8fa; border-radius: 34px; padding: 40px 40px 40p=
+x 40px; font-family: 'Mona Sans', sans-serif; font-size: 12px; font-weight:=
+ 400; line-height: 20px; color: #575f6a; text-align: center;">
+                                   =20
+                                    <!-- Links : BEGIN -->
+                                    <p style=3D"margin: 0 0 6px 0;">
+                                        <a href=3D"https://mailing.github.c=
+om/ls/click?upn=3Du001.yTwbFXLgCmEu8hAAUi-2FKKsvgAPRdnnVhv4Q-2BmbX4I0hxgSWi=
+WAeSbkdFHHbpr9MRqcWuBxT968k-2F2SOWSxDRJQ5hwho6jQiNOVUy0BQn2Nk-3Dsj-i_8gQZQt=
+RaUNUBsYAy2b1cT-2BpyzFOH-2BZ3-2FAWK3Blh-2BXe0yyz1GQCQTUZOyrUxuzl5lOFLyd9f1G=
+G0euzAQQTAKmloQ16EaytiswD-2FOZ1dHsINBesebz9AAuNbEKYVViHa1FmfRwemUmauV5PKKLG=
+v4GVhE7pRn1Hu5dif-2FvP244Q-2BF1-2BxEjgLLyuDD33CTS9G4158ca4253EpcgiL84CUgL0y=
+krX4vvNdv1ulWhGPCpMWs738Yz6LWx5HtK4r2CCAnfLED0Q52DJOixWsmfUlN6v4WJ3fI-2FuhJ=
+-2Bg7ng2boogle6rC-2FN-2B24aAXSrTEBJ7tCF1ZLGXSDOeoT5JOmFmMyhvD5eea5WRJv36C6G=
+i6Xzkq74DvG2c4g7wiYlwUvwD3aDIXPAwI7T-2BBTE0mXm7GvflkE9zdtKaVX3FAAFG7r95mD32=
+n3INntGB-2BKCXmYFs7Qs-2BWQ5NKgxbBLWborOtgwqiE-2FthwiTBFamCJDo-2FKdFIFbAwy-2=
+B-2F12dtfmmkttcvl9RpvunllI-2Fi8LeqsKSwzNoz9Xg3n1t6NCB6Pd-2FD1-2FY3-2FWS-2Be=
+-2FGf-2F5RvVSgtJRLuGw9FdBXIO67lnY5BJzQ-2Fqfb9Bf4Qz8jmZUy0LRvn7h1Mi2YJ3rqu9L=
+oJBPQUFpbYrcfi67a3CUZDu83HPjWkZQfvI3ROPyk80uj1Mq0IavqbNZ0haQspr1k06N7bX1Pvw=
+KVEnXJJTN5op0uHf4RGg7tbgCul5FB7xMtLO89lR6RGCWdlnmR4Ri4S2ijxwQGcKo3ANdKv4Caj=
+x1w50ajLV3aK33frER4A9WqjF1OpU161cN21igrwjWDw5UEeAYWk4esBddIuBTi-2FXJj-2FXwJ=
+Hv9zHGnzS1vPfp90DKmgJfqpo8UO9GcQyyx8cDjZrWA15K5IYMBTY4svkV0BJDhGajSBh5gkNXW=
+AikPTQwCOPNYXFX4-3D" style=3D"color: #0366d6; font-weight: 400; text-decora=
+tion: none;">Privacy policy</a>
+                                        <span>&nbsp;&bull;&nbsp;</span>
+                                        <a href=3D"https://mailing.github.c=
+om/ls/click?upn=3Du001.yTwbFXLgCmEu8hAAUi-2FKKsvgAPRdnnVhv4Q-2BmbX4I0hxgSWi=
+WAeSbkdFHHbpr9MRk7De2ZlEzKDk7Pdf9daNO-2BAJVWpUr50lXNUk3klFopU-3DQl5k_8gQZQt=
+RaUNUBsYAy2b1cT-2BpyzFOH-2BZ3-2FAWK3Blh-2BXe0yyz1GQCQTUZOyrUxuzl5lOFLyd9f1G=
+G0euzAQQTAKmloQ16EaytiswD-2FOZ1dHsINBesebz9AAuNbEKYVViHa1FmfRwemUmauV5PKKLG=
+v4GVhE7pRn1Hu5dif-2FvP244Q-2BF1-2BxEjgLLyuDD33CTS9G4158ca4253EpcgiL84CUgL0y=
+krX4vvNdv1ulWhGPCpMWs738Yz6LWx5HtK4r2CCAnfLED0Q52DJOixWsmfUlN6v4WJ3fI-2FuhJ=
+-2Bg7ng2boogle6rC-2FN-2B24aAXSrTEBJ7tCF1ZLGXSDOeoT5JOmFmMyhvD5eea5WRJv36C6G=
+i6Xzkq74DvG2c4g7wiYlwUvwD3aDIXPAwI7T-2BBTE0mXm7GvflkE9zdtKaVX3FAAFG7r95mD32=
+n3INntGB-2BKCXmYFs7Qs-2BWQ5NKgxbBLWborOtgwqiE-2FthwiTBFamCJDo-2FKdFIFbAwy-2=
+B-2F12dtfmmkttcvl9RpvunllI-2Fi8LeqsKSwzNoz9Xg3n1t6NCB6Pd-2FD1-2FY3-2FWS-2Be=
+-2FGf-2F5RvVSgtJRLuGw9FdBXIO67lnY5BJzQ-2Fqfb9Bf4Qz8jmZUy0LRvn7h1Mi2YJ3rqu9L=
+oJBPQUFpbYrcfi67a3CUZDu83HPjWkZQfvI3ROPyk80uj1Mq0IavqbNZ0haQspr1k06N7bX1Pvw=
+KVEnXJJTN5op0uHf4RGg7tbgCul5FB7xMtLO89lR6RGCWdlnmR4Ri4S2ijxwQGcKo3ANdKv4Caj=
+x1w50ajLV3aK7eb2r-2FHGIlU33OukhfOG6ZyUOqE-2Fv4k9TwZN5nfwzGYfFoLrRg-2BsFHzlO=
+v-2FCLbxrWFyY4QsBK6iuXsVUiQWvEFiDDo-2B6bHqltbRKYVJZG1Dk6SE52ZOrF5vVRkdOOaDh=
+49CfLsW0q3-2B2ovoRjPIffo-3D" style=3D"color: #0366d6; font-weight: 400; tex=
+t-decoration: none;">Terms of use</a>
+                                        <span>&nbsp;&bull;&nbsp;</span>
+                                        <a href=3D"https://mailing.github.c=
+om/ls/click?upn=3Du001.yTwbFXLgCmEu8hAAUi-2FKKsBZ-2B0y4zj0sElUXN1pD95sGx-2B=
+FPEKnZ8fic8p6xkenm5H1fc-2BXUz7Vumw1-2BsfwSVuTrHEughOdWpEC-2FrRkuDJU-3DfYv4_=
+8gQZQtRaUNUBsYAy2b1cT-2BpyzFOH-2BZ3-2FAWK3Blh-2BXe0yyz1GQCQTUZOyrUxuzl5lOFL=
+yd9f1GG0euzAQQTAKmloQ16EaytiswD-2FOZ1dHsINBesebz9AAuNbEKYVViHa1FmfRwemUmauV=
+5PKKLGv4GVhE7pRn1Hu5dif-2FvP244Q-2BF1-2BxEjgLLyuDD33CTS9G4158ca4253EpcgiL84=
+CUgL0ykrX4vvNdv1ulWhGPCpMWs738Yz6LWx5HtK4r2CCAnfLED0Q52DJOixWsmfUlN6v4WJ3fI=
+-2FuhJ-2Bg7ng2boogle6rC-2FN-2B24aAXSrTEBJ7tCF1ZLGXSDOeoT5JOmFmMyhvD5eea5WRJ=
+v36C6Gi6Xzkq74DvG2c4g7wiYlwUvwD3aDIXPAwI7T-2BBTE0mXm7GvflkE9zdtKaVX3FAAFG7r=
+95mD32n3INntGB-2BKCXmYFs7Qs-2BWQ5NKgxbBLWborOtgwqiE-2FthwiTBFamCJDo-2FKdFIF=
+bAwy-2B-2F12dtfmmkttcvl9RpvunllI-2Fi8LeqsKSwzNoz9Xg3n1t6NCB6Pd-2FD1-2FY3-2F=
+WS-2Be-2FGf-2F5RvVSgtJRLuGw9FdBXIO67lnY5BJzQ-2Fqfb9Bf4Qz8jmZUy0LRvn7h1Mi2YJ=
+3rqu9LoJBPQUFpbYrcfi67a3CUZDu83HPjWkZQfvI3ROPyk80uj1Mq0IavqbNZ0haQspr1k06N7=
+bX1PvwKVEnXJJTN5op0uHf4RGg7tbgCul5FB7xMtLO89lR6RGCWdlnmR4Ri4S2ijxwQGcKo3ANd=
+Kv4Cajx1w50ajLV3aKxYNQ7-2FbKHEXAvmYmjW1zs7TpMJIf-2F16K1XZKiQd8tLbpQ4ogocUhx=
+Z3Vv1dPiQRePdmOwcAr72o0J-2Fpwxuc-2BnjvI2ud2mE8vae2PYi7PjWsY-2Byi024aNGiuQ41=
+H8xUq8NytXD1f1Ijk3Ldm0btiFHk-3D" style=3D"color: #0366d6; font-weight: 400;=
+ text-decoration: none;">Contact us</a>
+                                    </p>
+                                    <!-- Links : BEGIN -->
+                                    <!-- Address Notice : BEGIN -->
+                                    <p style=3D"margin: 0 0 6px 0;">
+                                        GitHub, Inc. &nbsp;&bull;&nbsp; 88 =
+Colin P Kelly Jr Street &nbsp;&bull;&nbsp; San Francisco, CA 94107
+                                    </p>
+                                    <p style=3D"margin: 0 0 0 0;">
+                                        You are receiving this because you =
+are a GitHub Copilot user.
+                                    </p>
+                                    <!-- Address Notice : END -->
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <!-- Footer Component : END
+                 =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D -->
+
+            </table>
+            <!-- Email Body : END -->
+
+            <!--[if mso]>
+            </td>
+            </tr>
+            </table>
+            <![endif]-->
+        </div>
+
+    <!--[if mso | IE]>
+    </td>
+    </tr>
+    </table>
+    <![endif]-->
+    </center>
+<img src=3D"https://mailing.github.com/wf/open?upn=3Du001.MPRt98UxT5lA8cLzK=
+4-2FVuhKZujQlqBBXqzIFk9nRHb3C2-2BGX9r4ENa5vgUPJr8V4CKRPm1IYYnnnxpZxZs5NWWmM=
+rPuaJBeV8lwkumhuGJ-2FxDKHvUWAYYGyaYQeC8y0jE3KDTldVDL0dbn0OzYokQChtIyR9NN7pX=
+41JfDnnVFN0VACJlJZLZg6GQPCSN09U2EgoQDIHGkxejmH73rpqeym9CMIoDNn8QUmFXe0zMMBV=
+YtsGYMsnFSrrgibD6Jj-2BLkwfcsBN-2F7B1v3nsSnlNnrgLVBy6XXRxVwbhOIcn9KMP-2F-2BS=
+DevVQscZFcsuL-2FrK3USdtBxTquo4Ts7-2BtwArsa-2F16XO5fw9nIu6lUqVDE-2FbCUM-2BFR=
+5rsDL1bN7VWruh2gDYSiAQRkQotMF6wMYbHZ-2FprLuRlmCe5cwtNB3o3o-2Bl1U7NzNWDCertG=
+Okr9MfwMZRbzjbN3G4f7GCc-2FEdGGefPXpDSwMg17NiTc-2BXbqwZfVhvLJUa42nmzGtcclT5D=
+RQayJudbq8Kv-2FOr4UoktADfEnSNbNIzWkaHs1cv1RMqVdM5KLR9k6-2Bqu5YsOSk-2BaeJ-2F=
+Ww1v7Kxt1FfyQLSfOxn3B0D0AqtEalCrIxjmGPvqgpYQbKaDx-2BWAjz9sT23Lc6MwSR7Tmj2zt=
+1zbVUrCPrgRDzV-2FDq5fU5VZHm3wpo7EljnV6Zv8hI3iIkYJ7ByCiJSLI1Jd6Sidg5BrPSBYvB=
+21XTQkAkbzIlKoeNcEkvtcFrq4VqIPuIskeOd74X9eGtOhZ1IsQ8onlWJscSCOtkIqXezh4qNbf=
+Rw5czcNsSdlFeC3pNm8vg2ur0otIRZjWeH37mrWTxQqVdozVhb-2Fpy0gvHcxM4Zsi8jhr36pv6=
+h61Q8e8X1JWVv4UO0StQQKh-2FhvPa-2FCsbvMqaoQ38kUDht4C-2FetjsDI6iBHEnEXPccIPU-=
+3D" alt=3D"" width=3D"1" height=3D"1" border=3D"0" style=3D"height:1px !imp=
+ortant;width:1px !important;border-width:0 !important;margin-top:0 !importa=
+nt;margin-bottom:0 !important;margin-right:0 !important;margin-left:0 !impo=
+rtant;padding-top:0 !important;padding-bottom:0 !important;padding-right:0 =
+!important;padding-left:0 !important;"/></body>
+</html>
+
+--b41aea9c5d1e1074ead44d71d27f882b6d6c727c8c4d1a2be3a807b26e2c--
