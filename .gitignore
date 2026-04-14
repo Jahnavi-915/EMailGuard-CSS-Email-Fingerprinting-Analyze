@@ -2,3 +2,4 @@ venv/
 __pycache__/
 *.pyc
 .pytest_cache/test_samples/inbox_emails/
+test_samples/inbox_emails/
