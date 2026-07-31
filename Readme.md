@@ -8,6 +8,8 @@
 
 > 🛡️ **No JavaScript, no network requests, no rendering** – pure static analysis.
 
+> **My Role:** This repository contains my contributions to the EMailGuard project completed as part of a two-member team. My primary responsibilities included implementing the Flask backend, CSS fingerprinting detectors (`calc()`, `@font-face`, `@supports`), HTML report generation, testing, and documentation.
+
 ---
 
 ## 📖 Table of Contents
@@ -91,14 +93,14 @@ We used the **official NDSS 2025 artifact** only for test `.eml` files (email Po
 
 ## 👥 Team & Roles
 
-### 👤 Member A – Pipeline & Core Logic
+### 👤 Bhargav – Pipeline & Core Logic
 - `.eml` parser & CSS extractor
 - Detectors: `@import`, `@media`, `@container`
 - Correlation engine
 - CLI interface
 - Integration & deployment (Render)
 
-### 👤 Member B – Detection & Output
+### 👤 Jahnavi – Detection & Output
 - Detectors: `calc()`, `@font-face`, `@supports`
 - Risk scoring
 - Flask web app backend
@@ -110,6 +112,17 @@ We used the **official NDSS 2025 artifact** only for test `.eml` files (email Po
 - Dataset creation (synthetic + clean)
 - Documentation & PPT
 
+---
+## My Contributions
+
+As part of this team project, I contributed to:
+
+- Development of the Flask web application backend.
+- Implementation of CSS fingerprinting detectors (`calc()`, `@font-face`, and `@supports`).
+- HTML report generation using Jinja2 templates.
+- Unit and integration testing.
+- Project documentation and presentation.
+  
 ---
 
 ## 🛠 Installation
